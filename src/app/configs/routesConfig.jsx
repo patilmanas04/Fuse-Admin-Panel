@@ -7,6 +7,7 @@ import SignUpConfig from '../main/sign-up/SignUpConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
+import ProjectDashboardApp from '../main/dashboards/project/ProjectDashboardApp';
 
 const routeConfigs = [ExampleConfig, SignOutConfig, SignInConfig, SignUpConfig];
 /**
@@ -30,6 +31,11 @@ const routes = [
 	{
 		path: '*',
 		element: <Navigate to="404" />
+	},
+	{
+		path: '/dashboards/project',
+		element: <ProjectDashboardApp />,
+		auth: settingsConfig.defaultAuth
 	}
 ];
 export default routes;
