@@ -12,22 +12,22 @@ import format from 'date-fns/format';
 import _ from '@lodash';
 import { showMessage } from '@fuse/core/FuseMessage/fuseMessageSlice';
 import { useAppDispatch } from 'app/store/hooks';
-import { useGetContactsItemQuery, useGetContactsCountriesQuery, useGetContactsTagsQuery } from '../ContactsApi';
+import { useGetEmployeesItemQuery, useGetEmployeesCountriesQuery, useGetEmployeesTagsQuery } from '../EmployeesApi';
 
 /**
- * The contact view.
+ * The employee view.
  */
-function ContactView() {
-	const { data: countries } = useGetContactsCountriesQuery();
-	const { data: tags } = useGetContactsTagsQuery();
+function EmployeeView() {
+	const { data: countries } = useGetEmployeesCountriesQuery();
+	const { data: tags } = useGetEmployeesTagsQuery();
 	const routeParams = useParams();
-	const { id: contactId } = routeParams;
+	const { id: employeeId } = routeParams;
 	const {
-		data: contact,
+		data: employee,
 		isLoading,
 		isError
-	} = useGetContactsItemQuery(contactId, {
-		skip: !contactId
+	} = useGetEmployeesItemQuery(employeeId, {
+		skip: !employeeId
 	});
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
@@ -42,13 +42,13 @@ function ContactView() {
 
 	if (isError) {
 		setTimeout(() => {
-			navigate('/apps/contacts');
+			navigate('/apps/employees');
 			dispatch(showMessage({ message: 'NOT FOUND' }));
 		}, 0);
 		return null;
 	}
 
-	if (!contact) {
+	if (!employee) {
 		return null;
 	}
 
@@ -60,10 +60,10 @@ function ContactView() {
 					backgroundColor: 'background.default'
 				}}
 			>
-				{contact.background && (
+				{employee.background && (
 					<img
 						className="absolute inset-0 object-cover w-full h-full"
-						src={contact.background}
+						src={employee.background}
 						alt="user background"
 					/>
 				)}
@@ -80,10 +80,10 @@ function ContactView() {
 								color: 'text.secondary'
 							}}
 							className="w-128 h-128 text-64 font-bold"
-							src={contact.avatar}
-							alt={contact.name}
+							src={employee.avatar}
+							alt={employee.name}
 						>
-							{contact?.name?.charAt(0)}
+							{employee?.name?.charAt(0)}
 						</Avatar>
 						<div className="flex items-center ml-auto mb-4">
 							<Button
@@ -98,10 +98,10 @@ function ContactView() {
 						</div>
 					</div>
 
-					<Typography className="mt-12 text-4xl font-bold truncate">{contact.name}</Typography>
+					<Typography className="mt-12 text-4xl font-bold truncate">{employee.name}</Typography>
 
 					<div className="flex flex-wrap items-center mt-8">
-						{contact?.tags?.map((id) => (
+						{employee?.tags?.map((id) => (
 							<Chip
 								key={id}
 								label={_.find(tags, { id })?.title}
@@ -114,25 +114,25 @@ function ContactView() {
 					<Divider className="mt-16 mb-24" />
 
 					<div className="flex flex-col space-y-32">
-						{contact.title && (
+						{employee.title && (
 							<div className="flex items-center">
 								<FuseSvgIcon>heroicons-outline:briefcase</FuseSvgIcon>
-								<div className="ml-24 leading-6">{contact.title}</div>
+								<div className="ml-24 leading-6">{employee.title}</div>
 							</div>
 						)}
 
-						{contact.company && (
+						{employee.company && (
 							<div className="flex items-center">
 								<FuseSvgIcon>heroicons-outline:office-building</FuseSvgIcon>
-								<div className="ml-24 leading-6">{contact.company}</div>
+								<div className="ml-24 leading-6">{employee.company}</div>
 							</div>
 						)}
 
-						{contact?.emails?.length && contact.emails.some((item) => item.email?.length > 0) && (
+						{employee?.emails?.length && employee.emails.some((item) => item.email?.length > 0) && (
 							<div className="flex">
 								<FuseSvgIcon>heroicons-outline:mail</FuseSvgIcon>
 								<div className="min-w-0 ml-24 space-y-4">
-									{contact.emails.map(
+									{employee.emails.map(
 										(item) =>
 											item.email !== '' && (
 												<div
@@ -163,13 +163,13 @@ function ContactView() {
 							</div>
 						)}
 
-						{contact?.phoneNumbers &&
-							contact?.phoneNumbers?.length &&
-							contact.phoneNumbers.some((item) => item.phoneNumber?.length > 0) && (
+						{employee?.phoneNumbers &&
+							employee?.phoneNumbers?.length &&
+							employee.phoneNumbers.some((item) => item.phoneNumber?.length > 0) && (
 								<div className="flex">
 									<FuseSvgIcon>heroicons-outline:phone</FuseSvgIcon>
 									<div className="min-w-0 ml-24 space-y-4">
-										{contact.phoneNumbers.map(
+										{employee.phoneNumbers.map(
 											(item, index) =>
 												item.phoneNumber !== '' && (
 													<div
@@ -180,7 +180,7 @@ function ContactView() {
 															className="hidden sm:flex w-24 h-16 overflow-hidden"
 															sx={{
 																background:
-																	"url('/assets/images/apps/contacts/flags.png') no-repeat 0 0",
+																	"url('/assets/images/apps/employees/flags.png') no-repeat 0 0",
 																backgroundSize: '24px 3876px',
 																backgroundPosition: getCountryByIso(item.country)
 																	?.flagImagePos
@@ -209,27 +209,27 @@ function ContactView() {
 								</div>
 							)}
 
-						{contact.address && (
+						{employee.address && (
 							<div className="flex items-center">
 								<FuseSvgIcon>heroicons-outline:location-marker</FuseSvgIcon>
-								<div className="ml-24 leading-6">{contact.address}</div>
+								<div className="ml-24 leading-6">{employee.address}</div>
 							</div>
 						)}
 
-						{contact.birthday && (
+						{employee.birthday && (
 							<div className="flex items-center">
 								<FuseSvgIcon>heroicons-outline:cake</FuseSvgIcon>
-								<div className="ml-24 leading-6">{format(new Date(contact.birthday), 'MMMM d, y')}</div>
+								<div className="ml-24 leading-6">{format(new Date(employee.birthday), 'MMMM d, y')}</div>
 							</div>
 						)}
 
-						{contact.notes && (
+						{employee.notes && (
 							<div className="flex">
 								<FuseSvgIcon>heroicons-outline:menu-alt-2</FuseSvgIcon>
 								<div
 									className="max-w-none ml-24 prose dark:prose-invert"
 									// eslint-disable-next-line react/no-danger
-									dangerouslySetInnerHTML={{ __html: contact.notes }}
+									dangerouslySetInnerHTML={{ __html: employee.notes }}
 								/>
 							</div>
 						)}
@@ -240,4 +240,4 @@ function ContactView() {
 	);
 }
 
-export default ContactView;
+export default EmployeeView;

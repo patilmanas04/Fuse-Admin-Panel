@@ -5,8 +5,8 @@ import { styled } from '@mui/material/styles';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import EmployeesHeader from './EmployeesHeader';
 import EmployeesList from './EmployeesList';
-import { useGetContactsListQuery, useGetContactsCountriesQuery, useGetContactsTagsQuery } from './ContactsApi';
-import ContactsSidebarContent from './ContactsSidebarContent';
+import { useGetEmployeesListQuery, useGetEmployeesCountriesQuery, useGetEmployeesTagsQuery } from './EmployeesApi';
+import EmployeesSidebarContent from './EmployeesSidebarContent';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
 	'& .FusePageSimple-header': {
@@ -15,9 +15,9 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
 }));
 
 /**
- * The ContactsApp page.
+ * The EmployeesApp page.
  */
-function ContactsApp() {
+function EmployeesApp() {
 	useEffect(() => {
 		document.title = 'Employees';
 	}, [])
@@ -25,9 +25,9 @@ function ContactsApp() {
 	const routeParams = useParams();
 	const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
 	const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
-	useGetContactsListQuery();
-	useGetContactsCountriesQuery();
-	useGetContactsTagsQuery();
+	useGetEmployeesListQuery();
+	useGetEmployeesCountriesQuery();
+	useGetEmployeesTagsQuery();
 	useEffect(() => {
 		setRightSidebarOpen(Boolean(routeParams.id));
 	}, [routeParams]);
@@ -36,7 +36,7 @@ function ContactsApp() {
 			header={<EmployeesHeader />}
 			content={<EmployeesList />}
 			ref={pageLayout}
-			rightSidebarContent={<ContactsSidebarContent />}
+			rightSidebarContent={<EmployeesSidebarContent />}
 			rightSidebarOpen={rightSidebarOpen}
 			rightSidebarOnClose={() => setRightSidebarOpen(false)}
 			rightSidebarWidth={640}
@@ -46,4 +46,4 @@ function ContactsApp() {
 	);
 }
 
-export default ContactsApp;
+export default EmployeesApp;

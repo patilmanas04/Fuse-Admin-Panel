@@ -3,10 +3,10 @@ import { rootReducer } from 'app/store/lazyLoadedSlices';
 
 const initialState = { searchText: '' };
 /**
- * The Contacts App slice.
+ * The Employees App slice.
  */
-export const contactsAppSlice = createSlice({
-	name: 'contactsApp',
+export const employeesAppSlice = createSlice({
+	name: 'employeesApp',
 	initialState,
 	reducers: {
 		setSearchText: {
@@ -30,9 +30,9 @@ export const contactsAppSlice = createSlice({
 /**
  * Lazy load
  * */
-rootReducer.inject(contactsAppSlice);
-const injectedSlice = contactsAppSlice.injectInto(rootReducer);
-export const { setSearchText, resetSearchText } = contactsAppSlice.actions;
+rootReducer.inject(employeesAppSlice);
+const injectedSlice = employeesAppSlice.injectInto(rootReducer);
+export const { setSearchText, resetSearchText } = employeesAppSlice.actions;
 export const { selectSearchText } = injectedSlice.selectors;
-const searchTextReducer = contactsAppSlice.reducer;
+const searchTextReducer = employeesAppSlice.reducer;
 export default searchTextReducer;

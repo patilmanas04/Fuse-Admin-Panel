@@ -2,7 +2,6 @@ import i18next from 'i18next';
 import ar from './navigation-i18n/ar';
 import en from './navigation-i18n/en';
 import tr from './navigation-i18n/tr';
-import { id } from 'date-fns/locale';
 
 i18next.addResourceBundle('en', 'navigation', en);
 i18next.addResourceBundle('tr', 'navigation', tr);
@@ -23,14 +22,14 @@ const navigationConfig = [
 				title: 'Project',
 				type: 'item',
 				icon: 'heroicons-outline:clipboard-check',
-				url: '/dashboards/project',
+				url: 'dashboards/project',
 			},
 			{
 				id: 'dashboards.analytics',
 				title: 'Analytics',
 				type: 'item',
 				icon: 'heroicons-outline:chart-pie',
-				url: '/dashboards/analytics',
+				url: 'dashboards/analytics',
 			},
 		],
 	},
@@ -44,14 +43,14 @@ const navigationConfig = [
 				id: 'applications.employees',
 				title: 'Employees',
 				type: 'item',
-				url: '/apps/employees',
+				url: 'apps/employees',
 				icon: 'heroicons-outline:user-group',
 			},
 			{
 				id: 'applications.clients',
 				title: 'Clients',
 				type: 'item',
-				url: '/apps/clients',
+				url: 'apps/clients',
 				icon: 'heroicons-outline:user',
 			},
 			{
@@ -64,19 +63,19 @@ const navigationConfig = [
 						id: 'applications.crm.inquiries',
 						title: 'Inquiries',
 						type: 'item',
-						url: '/apps/crm/inquiries',
+						url: 'apps/crm/inquiries',
 					},
 					{
 						id: 'applications.crm.deals',
 						title: 'Deals',
 						type: 'item',
-						url: '/apps/crm/deals',
+						url: 'apps/crm/deals',
 					},
 					{
 						id: 'applications.crm.totalpayments',
 						title: 'Total Payments',
 						type: 'item',
-						url: '/apps/crm/totalpayments',
+						url: 'apps/crm/totalpayments',
 					},
 				]
 			},
@@ -84,7 +83,7 @@ const navigationConfig = [
 				id: 'applications.sendnotification',
 				title: 'Send Notification',
 				type: 'item',
-				url: '/apps/sendnotification',
+				url: 'apps/sendnotification',
 				icon: 'heroicons-outline:bell',
 			},
 			{
@@ -97,13 +96,13 @@ const navigationConfig = [
 						id: 'applications.projectmanagement.createaplan',
 						title: 'Create a Plan',
 						type: 'item',
-						url: '/apps/projectmanagement/createaplan',
+						url: 'apps/projectmanagement/createaplan',
 					},
 					{
 						id: 'applications.projectmanagement.createaprogram',
 						title: 'Create a Program',
 						type: 'item',
-						url: '/apps/projectmanagement/createaprogram',
+						url: 'apps/projectmanagement/createaprogram',
 					},
 				]
 			},
@@ -111,49 +110,49 @@ const navigationConfig = [
 				id: 'applications.phototracking',
 				title: 'Photo Tracking',
 				type: 'item',
-				url: '/apps/phototracking',
+				url: 'apps/phototracking',
 				icon: 'heroicons-outline:camera',
 			},
 			{
 				id: 'applications.shifts',
 				title: 'Shifts',
 				type: 'item',
-				url: '/apps/shifts',
+				url: 'apps/shifts',
 				icon: 'heroicons-outline:clock',
 			},
 			{
 				id: 'applications.reports',
 				title: 'Reports',
 				type: 'item',
-				url: '/apps/reports',
+				url: 'apps/reports',
 				icon: 'heroicons-outline:flag',
 			},
 			{
 				id: 'applications.inventory',
 				title: 'Inventory',
 				type: 'item',
-				url: '/apps/inventory',
+				url: 'apps/inventory',
 				icon: 'heroicons-outline:archive',
 			},
 			{
 				id: 'applications.expenses',
 				title: 'Expenses',
 				type: 'item',
-				url: '/apps/expenses',
+				url: 'apps/expenses',
 				icon: 'heroicons-outline:currency-dollar',
 			},
 			{
 				id: 'applications.bodyassessmentreports',
 				title: 'Body Assessment Reports',
 				type: 'item',
-				url: '/apps/bodyassessmentreports',
+				url: 'apps/bodyassessmentreports',
 				icon: 'heroicons-outline:document-report',
 			},
 			{
 				id: 'applications.classes',
 				title: 'Classes',
 				type: 'item',
-				url: '/apps/classes',
+				url: 'apps/classes',
 				icon: 'heroicons-outline:academic-cap',
 			},
 			{
@@ -166,7 +165,7 @@ const navigationConfig = [
 						id: 'applications.membership.gymmembership',
 						title: 'Gym Membership',
 						type: 'item',
-						url: '/apps/membership/gymmembership',
+						url: 'apps/membership/gymmembership',
 					},
 				]
 			},
@@ -174,14 +173,14 @@ const navigationConfig = [
 				id: 'applications.assessmentform',
 				title: 'Assessment Form',
 				type: 'item',
-				url: '/apps/assessmentform',
+				url: 'apps/assessmentform',
 				icon: 'heroicons-outline:document-text',
 			},
 			{
 				id: 'applications.events',
 				title: 'Events',
 				type: 'item',
-				url: '/apps/events',
+				url: 'apps/events',
 				icon: 'heroicons-outline:calendar',
 			},
 		],

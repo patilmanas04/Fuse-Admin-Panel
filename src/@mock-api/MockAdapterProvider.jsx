@@ -8,7 +8,7 @@ import { authApiMocks } from './api/auth-api';
 // import { notificationsApiMocks } from './api/notifications-api';
 import { messengerApiMocks } from './api/messenger-api';
 import { financeDashboardApiMocks } from './api/dashboards/finance-api';
-// import { contactsApiMocks } from './api/contacts-api';
+import { employeesApiMocks } from './api/employees-api';
 import { analyticsDashboardApiMocks } from './api/dashboards/analytics-api';
 import { cryptoDashboardApiMocks } from './api/dashboards/crypto-api';
 import { projectDashboardApiMocks } from './api/dashboards/project-api';
@@ -47,7 +47,7 @@ function MockAdapterProvider(props) {
 				academyApiMocks,
 				authApiMocks,
 				calendarApiMocks,
-				// contactsApiMocks,
+				employeesApiMocks,
 				countriesApiMocks,
 				eCommerceApiMocks,
 				fileManagerApiMocks,

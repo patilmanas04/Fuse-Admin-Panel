@@ -7,17 +7,17 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Box from '@mui/material/Box';
 import { useAppDispatch, useAppSelector } from 'app/store/hooks';
 import { useEffect } from 'react';
-import { setSearchText, resetSearchText, selectSearchText } from './contactsAppSlice';
-import { selectFilteredContactList, useGetContactsListQuery } from './ContactsApi';
+import { setSearchText, resetSearchText, selectSearchText } from './employeesAppSlice';
+import { selectFilteredEmployeeList, useGetEmployeesListQuery } from './EmployeesApi';
 
 /**
- * The contacts header.
+ * The employees header.
  */
 function EmployeesHeader() {
 	const dispatch = useAppDispatch();
 	const searchText = useAppSelector(selectSearchText);
-	const { data, isLoading } = useGetContactsListQuery();
-	const filteredData = useAppSelector(selectFilteredContactList(data));
+	const { data, isLoading } = useGetEmployeesListQuery();
+	const filteredData = useAppSelector(selectFilteredEmployeeList(data));
 	useEffect(() => {
 		return () => {
 			dispatch(resetSearchText());

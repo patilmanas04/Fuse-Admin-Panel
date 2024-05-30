@@ -5,12 +5,20 @@ import settingsConfig from 'app/configs/settingsConfig';
 import SignInConfig from '../main/sign-in/SignInConfig';
 import SignUpConfig from '../main/sign-up/SignUpConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
+import appsConfigs from '../main/apps/appsConfigs';
 import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
 import ProjectDashboardApp from '../main/dashboards/project/ProjectDashboardApp';
 import AnalyticsDashboardApp from '../main/dashboards/analytics copy/AnalyticsDashboardApp';
+import EmployeesApp from '../main/apps/employees/EmployeesApp';
 
-const routeConfigs = [ExampleConfig, SignOutConfig, SignInConfig, SignUpConfig];
+const routeConfigs = [
+	ExampleConfig,
+	SignOutConfig,
+	SignInConfig,
+	SignUpConfig,
+	...appsConfigs
+];
 /**
  * The routes of the application.
  */
@@ -33,15 +41,20 @@ const routes = [
 		path: '*',
 		element: <Navigate to="404" />
 	},
-	{
-		path: '/dashboards/project',
-		element: <ProjectDashboardApp />,
-		auth: settingsConfig.defaultAuth
-	},
-	{
-		path: '/dashboards/analytics',
-		element: <AnalyticsDashboardApp />,
-		auth: settingsConfig.defaultAuth
-	},
+	// {
+	// 	path: '/dashboards/project',
+	// 	element: <ProjectDashboardApp />,
+	// 	auth: settingsConfig.defaultAuth
+	// },
+	// {
+	// 	path: '/dashboards/analytics',
+	// 	element: <AnalyticsDashboardApp />,
+	// 	auth: settingsConfig.defaultAuth
+	// },
+	// {
+	// 	path: '/apps/employees',
+	// 	element: <EmployeesApp />,
+	// 	auth: settingsConfig.defaultAuth
+	// },
 ];
 export default routes;

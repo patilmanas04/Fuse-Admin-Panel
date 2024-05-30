@@ -18,16 +18,16 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { showMessage } from '@fuse/core/FuseMessage/fuseMessageSlice';
 import { useAppDispatch } from 'app/store/hooks';
-import ContactEmailSelector from './email-selector/ContactEmailSelector';
+import EmployeeEmailSelector from './email-selector/EmployeeEmailSelector';
 import PhoneNumberSelector from './phone-number-selector/PhoneNumberSelector';
 import {
-	useCreateContactsItemMutation,
-	useDeleteContactsItemMutation,
-	useGetContactsItemQuery,
-	useGetContactsTagsQuery,
-	useUpdateContactsItemMutation
-} from '../ContactsApi';
-import ContactModel from '../models/ContactModel';
+	useCreateEmployeesItemMutation,
+	useDeleteEmployeesItemMutation,
+	useGetEmployeesItemQuery,
+	useGetEmployeesTagsQuery,
+	useUpdateEmployeesItemMutation
+} from '../EmployeesApi';
+import EmployeeModel from '../models/EmployeeModel';
 
 function BirtdayIcon() {
 	return <FuseSvgIcon size={20}>heroicons-solid:cake</FuseSvgIcon>;
@@ -36,13 +36,13 @@ function BirtdayIcon() {
 /**
  * Form Validation Schema
  */
-// Zod schema for ContactEmail
-const ContactEmailSchema = z.object({
+// Zod schema for EmployeeEmail
+const EmployeeEmailSchema = z.object({
 	email: z.string().optional(),
 	type: z.string().optional()
 });
-// Zod schema for ContactPhoneNumber
-const ContactPhoneNumberSchema = z.object({
+// Zod schema for EmployeePhoneNumber
+const EmployeePhoneNumberSchema = z.object({
 	number: z.string().optional(),
 	type: z.string().optional()
 });
@@ -50,8 +50,8 @@ const schema = z.object({
 	avatar: z.string().optional(),
 	background: z.string().optional(),
 	name: z.string().min(1, { message: 'Name is required' }),
-	emails: z.array(ContactEmailSchema).optional(),
-	phoneNumbers: z.array(ContactPhoneNumberSchema).optional(),
+	emails: z.array(EmployeeEmailSchema).optional(),
+	phoneNumbers: z.array(EmployeePhoneNumberSchema).optional(),
 	title: z.string().optional(),
 	company: z.string().optional(),
 	birthday: z.string().optional(),
@@ -61,20 +61,20 @@ const schema = z.object({
 });
 
 /**
- * The contact form.
+ * The employee form.
  */
-function ContactForm() {
+function EmployeeForm() {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const routeParams = useParams();
-	const { id: contactId } = routeParams;
-	const { data: contact, isError } = useGetContactsItemQuery(contactId, {
-		skip: !contactId
+	const { id: employeeId } = routeParams;
+	const { data: employee, isError } = useGetEmployeesItemQuery(employeeId, {
+		skip: !employeeId
 	});
-	const [createContact] = useCreateContactsItemMutation();
-	const [updateContact] = useUpdateContactsItemMutation();
-	const [deleteContact] = useDeleteContactsItemMutation();
-	const { data: tags } = useGetContactsTagsQuery();
+	const [createEmployee] = useCreateEmployeesItemMutation();
+	const [updateEmployee] = useUpdateEmployeesItemMutation();
+	const [deleteEmployee] = useDeleteEmployeesItemMutation();
+	const { data: tags } = useGetEmployeesTagsQuery();
 	const { control, watch, reset, handleSubmit, formState } = useForm({
 		mode: 'all',
 		resolver: zodResolver(schema)
@@ -82,44 +82,44 @@ function ContactForm() {
 	const { isValid, dirtyFields, errors } = formState;
 	const form = watch();
 	useEffect(() => {
-		if (contactId === 'new') {
-			reset(ContactModel({}));
+		if (employeeId === 'new') {
+			reset(EmployeeModel({}));
 		} else {
-			reset({ ...contact });
+			reset({ ...employee });
 		}
-	}, [contact, reset, routeParams]);
+	}, [employee, reset, routeParams]);
 
 	/**
 	 * Form Submit
 	 */
 	function onSubmit(data) {
-		if (contactId === 'new') {
-			createContact({ contact: data })
+		if (employeeId === 'new') {
+			createEmployee({ employee: data })
 				.unwrap()
 				.then((action) => {
-					navigate(`/apps/contacts/${action.id}`);
+					navigate(`/apps/employees/${action.id}`);
 				});
 		} else {
-			updateContact({ id: contact.id, ...data });
+			updateEmployee({ id: employee.id, ...data });
 		}
 	}
 
-	function handleRemoveContact() {
-		if (!contact) {
+	function handleRemoveEmployee() {
+		if (!employee) {
 			return;
 		}
 
-		deleteContact(contact.id).then(() => {
-			navigate('/apps/contacts');
+		deleteEmployee(employee.id).then(() => {
+			navigate('/apps/employees');
 		});
 	}
 
 	const background = watch('background');
 	const name = watch('name');
 
-	if (isError && contactId !== 'new') {
+	if (isError && employeeId !== 'new') {
 		setTimeout(() => {
-			navigate('/apps/contacts');
+			navigate('/apps/employees');
 			dispatch(showMessage({ message: 'NOT FOUND' }));
 		}, 0);
 		return null;
@@ -350,7 +350,7 @@ function ContactForm() {
 					control={control}
 					name="emails"
 					render={({ field }) => (
-						<ContactEmailSelector
+						<EmployeeEmailSelector
 							className="mt-32"
 							{...field}
 							value={field?.value}
@@ -466,10 +466,10 @@ function ContactForm() {
 				className="flex items-center mt-40 py-14 pr-16 pl-4 sm:pr-48 sm:pl-36 border-t"
 				sx={{ backgroundColor: 'background.default' }}
 			>
-				{contactId !== 'new' && (
+				{employeeId !== 'new' && (
 					<Button
 						color="error"
-						onClick={handleRemoveContact}
+						onClick={handleRemoveEmployee}
 					>
 						Delete
 					</Button>
@@ -494,4 +494,4 @@ function ContactForm() {
 	);
 }
 
-export default ContactForm;
+export default EmployeeForm;

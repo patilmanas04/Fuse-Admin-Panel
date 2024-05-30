@@ -6,13 +6,13 @@ import Box from '@mui/system/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import clsx from 'clsx';
-import { useGetContactsCountriesQuery } from '../../ContactsApi';
+import { useGetEmployeesCountriesQuery } from '../../EmployeesApi';
 /**
  * The country code selector.
  */
 const CountryCodeSelector = forwardRef((props, ref) => {
 	const { value, onChange, className } = props;
-	const { data: countries } = useGetContactsCountriesQuery();
+	const { data: countries } = useGetEmployeesCountriesQuery();
 	const country = _.find(countries, { iso: value });
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
@@ -39,7 +39,7 @@ const CountryCodeSelector = forwardRef((props, ref) => {
 					component="span"
 					className="w-24 h-16 overflow-hidden"
 					sx={{
-						background: "url('/assets/images/apps/contacts/flags.png') no-repeat 0 0",
+						background: "url('/assets/images/apps/employees/flags.png') no-repeat 0 0",
 						backgroundSize: '24px 3876px',
 						backgroundPosition: country?.flagImagePos
 					}}
@@ -68,7 +68,7 @@ const CountryCodeSelector = forwardRef((props, ref) => {
 							component="span"
 							className="w-24 h-16 overflow-hidden"
 							sx={{
-								background: "url('/assets/images/apps/contacts/flags.png') no-repeat 0 0",
+								background: "url('/assets/images/apps/employees/flags.png') no-repeat 0 0",
 								backgroundSize: '24px 3876px',
 								backgroundPosition: item.flagImagePos
 							}}

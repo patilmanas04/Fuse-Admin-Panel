@@ -3,7 +3,7 @@
   "info": {
     "title": "Fuse Mock API",
     "version": "1.0.0",
-    "contact": {
+    "employee": {
       "url": "http://fusetheme.com/",
       "email": "themes@withinpixels.com",
       "name": "Fuse Theme"
@@ -893,7 +893,7 @@
                     "type": "string",
                     "from": {
                       "avatar": "string",
-                      "contact": "string"
+                      "employee": "string"
                     },
                     "to": "string",
                     "cc": [
@@ -3827,9 +3827,9 @@
       },
       "parameters": []
     },
-    "/messenger/contacts": {
+    "/messenger/employees": {
       "get": {
-        "summary": "Get contacts",
+        "summary": "Get employees",
         "responses": {
           "200": {
             "description": "OK",
@@ -3838,39 +3838,39 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/chat_contact"
+                    "$ref": "#/components/schemas/chat_employee"
                   }
                 },
                 "examples": {
                   "example-1": {
-                    "$ref": "#/components/examples/chat_contacts"
+                    "$ref": "#/components/examples/chat_employees"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "getMessengerContacts",
-        "description": "Retrieve Messenger contacts.",
+        "operationId": "getMessengerEmployees",
+        "description": "Retrieve Messenger employees.",
         "x-stoplight": {
           "id": "8wjzq1q8ngoef"
         },
         "tags": [
-          "messenger_contacts"
+          "messenger_employees"
         ]
       },
       "parameters": []
     },
-    "/messenger/contacts/{contactId}": {
+    "/messenger/employees/{employeeId}": {
       "get": {
-        "summary": "Get contact",
+        "summary": "Get employee",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chat_contact"
+                  "$ref": "#/components/schemas/chat_employee"
                 },
                 "examples": {
                   "example-1": {
@@ -3916,13 +3916,13 @@
             }
           }
         },
-        "operationId": "getMessengerContact",
-        "description": "Retrieve Messenger contact by id.",
+        "operationId": "getMessengerEmployee",
+        "description": "Retrieve Messenger employee by id.",
         "x-stoplight": {
           "id": "9isbvxatj57nk"
         },
         "tags": [
-          "messenger_contact"
+          "messenger_employee"
         ]
       },
       "parameters": [
@@ -3930,15 +3930,15 @@
           "schema": {
             "type": "string"
           },
-          "name": "contactId",
+          "name": "employeeId",
           "in": "path",
           "required": true,
-          "description": "contact id"
+          "description": "employee id"
         }
       ],
       "put": {
-        "summary": "Update contact",
-        "operationId": "updateMessengerContact",
+        "summary": "Update employee",
+        "operationId": "updateMessengerEmployee",
         "responses": {
           "200": {
             "description": "OK"
@@ -3947,12 +3947,12 @@
             "description": "Not Found"
           }
         },
-        "description": "Update contact information.",
+        "description": "Update employee information.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/chat_contact"
+                "$ref": "#/components/schemas/chat_employee"
               },
               "examples": {
                 "example-1": {
@@ -4001,12 +4001,12 @@
           "id": "y44id5lgo0dfq"
         },
         "tags": [
-          "messenger_contact"
+          "messenger_employee"
         ]
       },
       "delete": {
-        "summary": "Delete contact",
-        "operationId": "deleteMessengerContact",
+        "summary": "Delete employee",
+        "operationId": "deleteMessengerEmployee",
         "responses": {
           "200": {
             "description": "OK"
@@ -4015,12 +4015,12 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete contact.",
+        "description": "Delete employee.",
         "x-stoplight": {
           "id": "9q07xu89n43oz"
         },
         "tags": [
-          "messenger_contacts"
+          "messenger_employees"
         ]
       }
     },
@@ -4058,16 +4058,16 @@
       },
       "parameters": []
     },
-    "/messenger/chats/{contactId}": {
+    "/messenger/chats/{employeeId}": {
       "parameters": [
         {
           "schema": {
             "type": "string"
           },
-          "name": "contactId",
+          "name": "employeeId",
           "in": "path",
           "required": true,
-          "description": "contact id"
+          "description": "employee id"
         }
       ],
       "get": {
@@ -4096,7 +4096,7 @@
             "description": "Not Found"
           }
         },
-        "description": "Retrieve the messages of the chat with the matching contact ID.",
+        "description": "Retrieve the messages of the chat with the matching employee ID.",
         "x-stoplight": {
           "id": "h0ammo8n1ki73"
         }
@@ -4538,27 +4538,27 @@
         ]
       }
     },
-    "/contacts/{contactId}": {
+    "/employees/{employeeId}": {
       "parameters": [
         {
           "schema": {
             "type": "string"
           },
-          "name": "contactId",
+          "name": "employeeId",
           "in": "path",
           "required": true,
-          "description": "contact id"
+          "description": "employee id"
         }
       ],
       "get": {
-        "summary": "Get contact by id",
+        "summary": "Get employee by id",
         "responses": {
           "200": {
             "description": "User Found",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/contact"
+                  "$ref": "#/components/schemas/employee"
                 },
                 "examples": {
                   "example-1": {
@@ -4595,40 +4595,40 @@
             }
           },
           "404": {
-            "description": "Contact Not Found"
+            "description": "Employee Not Found"
           }
         },
-        "operationId": "getContactsItem",
-        "description": "Retrieve the information of the contact with the matching contact ID.",
+        "operationId": "getEmployeesItem",
+        "description": "Retrieve the information of the employee with the matching employee ID.",
         "tags": [
-          "contacts_item"
+          "employees_item"
         ]
       },
       "put": {
-        "summary": "Update contact",
-        "operationId": "updateContactsItem",
+        "summary": "Update employee",
+        "operationId": "updateEmployeesItem",
         "responses": {
           "200": {
-            "description": "Contact Updated",
+            "description": "Employee Updated",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/contact"
+                  "$ref": "#/components/schemas/employee"
                 },
                 "examples": {}
               }
             }
           },
           "404": {
-            "description": "Contact Not Found"
+            "description": "Employee Not Found"
           }
         },
-        "description": "Update the information of an existing contact.",
+        "description": "Update the information of an existing employee.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/contact"
+                "$ref": "#/components/schemas/employee"
               },
               "examples": {
                 "example-1": {
@@ -4666,12 +4666,12 @@
           "description": "Update user properties."
         },
         "tags": [
-          "contacts"
+          "employees"
         ]
       },
       "delete": {
-        "summary": "Delete contact",
-        "operationId": "deleteContactsItem",
+        "summary": "Delete employee",
+        "operationId": "deleteEmployeesItem",
         "responses": {
           "200": {
             "description": "OK"
@@ -4680,17 +4680,17 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete an existing contact.",
+        "description": "Delete an existing employee.",
         "tags": [
-          "contacts"
+          "employees"
         ]
       }
     },
-    "/contacts": {
+    "/employees": {
       "get": {
-        "summary": "Get contacts",
+        "summary": "Get employees",
         "tags": [
-          "contacts"
+          "employees"
         ],
         "responses": {
           "200": {
@@ -4700,31 +4700,31 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/contact"
+                    "$ref": "#/components/schemas/employee"
                   }
                 },
                 "examples": {
                   "example-1": {
-                    "$ref": "#/components/examples/contacts"
+                    "$ref": "#/components/examples/employees"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "getContactsList",
-        "description": "Retrieve all of the contacts."
+        "operationId": "getEmployeesList",
+        "description": "Retrieve all of the employees."
       },
       "post": {
-        "summary": "Create new contact",
-        "operationId": "createContactsItem",
+        "summary": "Create new employee",
+        "operationId": "createEmployeesItem",
         "responses": {
           "201": {
             "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/contact"
+                  "$ref": "#/components/schemas/employee"
                 },
                 "examples": {
                   "Dejesus Michael": {
@@ -4765,7 +4765,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/contact"
+                "$ref": "#/components/schemas/employee"
               },
               "examples": {
                 "example-1": {
@@ -4801,14 +4801,14 @@
             }
           }
         },
-        "description": "Creates a new contact.",
+        "description": "Creates a new employee.",
         "tags": [
-          "contacts"
+          "employees"
         ]
       },
       "parameters": []
     },
-    "/contacts/tags/{tagId}": {
+    "/employees/tags/{tagId}": {
       "parameters": [
         {
           "schema": {
@@ -4845,18 +4845,18 @@
             "description": "Not Found"
           }
         },
-        "operationId": "getContactsTag",
+        "operationId": "getEmployeesTag",
         "description": "Retrieve the information of the tag with the matching tag ID.",
         "tags": [
-          "contacts_tag"
+          "employees_tag"
         ]
       },
       "put": {
         "summary": "Update tag info",
-        "operationId": "updateContactsTag",
+        "operationId": "updateEmployeesTag",
         "responses": {
           "200": {
-            "description": "Contact Updated",
+            "description": "Employee Updated",
             "content": {
               "application/json": {
                 "schema": {
@@ -4890,12 +4890,12 @@
           "description": "Update tag properties to update."
         },
         "tags": [
-          "contacts_tag"
+          "employees_tag"
         ]
       },
       "delete": {
         "summary": "Delete tag",
-        "operationId": "deleteContactsTag",
+        "operationId": "deleteEmployeesTag",
         "responses": {
           "200": {
             "description": "OK"
@@ -4906,11 +4906,11 @@
         },
         "description": "Delete an existing tag.",
         "tags": [
-          "contacts"
+          "employees"
         ]
       }
     },
-    "/contacts/tags": {
+    "/employees/tags": {
       "get": {
         "summary": "Get tags",
         "responses": {
@@ -4926,23 +4926,23 @@
                 },
                 "examples": {
                   "example-1": {
-                    "$ref": "#/components/examples/contacts_tags"
+                    "$ref": "#/components/examples/employees_tags"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "getContactsTags",
+        "operationId": "getEmployeesTags",
         "description": "Retrieve all of the tags.",
         "tags": [
-          "contacts_tags"
+          "employees_tags"
         ]
       },
       "parameters": [],
       "post": {
         "summary": "Create new tag",
-        "operationId": "createContactsTag",
+        "operationId": "createEmployeesTag",
         "responses": {
           "200": {
             "description": "OK",
@@ -5016,7 +5016,7 @@
   },
   "components": {
     "schemas": {
-      "contact": {
+      "employee": {
         "description": "",
         "type": "object",
         "x-examples": {
@@ -5147,7 +5147,7 @@
             }
           }
         },
-        "title": "Contact"
+        "title": "Employee"
       },
       "country": {
         "description": "",
@@ -5320,7 +5320,7 @@
           "example-1": {
             "id": "e6b2b82f-b199-4a60-9696-5f3e40d2715d",
             "chatId": "",
-            "contactId": "me",
+            "employeeId": "me",
             "value": "Hi!",
             "createdAt": "2022-01-05T15:56:48.732Z"
           }
@@ -5333,7 +5333,7 @@
           "chatId": {
             "type": "string"
           },
-          "contactId": {
+          "employeeId": {
             "type": "string"
           },
           "value": {
@@ -5348,7 +5348,7 @@
         "required": [
           "id",
           "chatId",
-          "contactId",
+          "employeeId",
           "value",
           "createdAt"
         ]
@@ -5359,7 +5359,7 @@
         "x-examples": {
           "example-1": {
             "id": "ff6bc7f1-449a-4419-af62-b89ce6cae0aa",
-            "contactId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
+            "employeeId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
             "unreadCount": 2,
             "muted": false,
             "lastMessage": "See you tomorrow!",
@@ -5371,7 +5371,7 @@
             "type": "string",
             "minLength": 1
           },
-          "contactId": {
+          "employeeId": {
             "type": "string"
           },
           "unreadCount": {
@@ -5391,14 +5391,14 @@
         },
         "required": [
           "id",
-          "contactId",
+          "employeeId",
           "unreadCount",
           "muted",
           "lastMessage",
           "lastMessageAt"
         ]
       },
-      "chat_contact": {
+      "chat_employee": {
         "description": "",
         "type": "object",
         "x-examples": {
@@ -7003,7 +7003,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-01.jpg",
-              "contact": "Myra Dudley <myra.dudley@company.com>"
+              "employee": "Myra Dudley <myra.dudley@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -7062,14 +7062,14 @@
             "type": "object",
             "required": [
               "avatar",
-              "contact"
+              "employee"
             ],
             "properties": {
               "avatar": {
                 "type": "string",
                 "minLength": 1
               },
-              "contact": {
+              "employee": {
                 "type": "string",
                 "minLength": 1
               }
@@ -7501,7 +7501,7 @@
               "shortcuts": [
                 "apps.calendar",
                 "apps.mailbox",
-                "apps.contacts"
+                "apps.employees"
               ]
             }
           }
@@ -7905,7 +7905,7 @@
               }
             }
           },
-          "contact": {
+          "employee": {
             "type": "object",
             "properties": {
               "address": {
@@ -7994,7 +7994,7 @@
                 }
               ]
             },
-            "contact": {
+            "employee": {
               "address": "Ut pharetra luctus est quis sodales. Duis nisi tortor, bibendum eget tincidunt, aliquam ac elit. Mauris nec euismod odio.",
               "tel": [
                 "+6 555 6600",
@@ -8071,7 +8071,7 @@
     },
     "securitySchemes": {},
     "examples": {
-      "contacts": {
+      "employees": {
         "value": [
           {
             "id": "cd5fa417-b667-482d-b208-798d9da3213c",
@@ -12476,7 +12476,7 @@
           }
         ]
       },
-      "contacts_tags": {
+      "employees_tags": {
         "value": [
           {
             "id": "c31e9e5d-e0cb-4574-a13f-8a6ee5ff8309",
@@ -13367,181 +13367,181 @@
           {
             "id": "e6b2b82f-b199-4a60-9696-5f3e40d2715d",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Hi!",
             "createdAt": "2022-01-05T15:56:48.732Z"
           },
           {
             "id": "eb82cf4b-fa93-4bf4-a88a-99e987ddb7ea",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Hey, dude!",
             "createdAt": "2022-01-05T16:04:48.732Z"
           },
           {
             "id": "3cf9b2a6-ae54-47db-97b2-ee139a8f84e5",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Long time no see.",
             "createdAt": "2022-01-05T16:04:48.732Z"
           },
           {
             "id": "2ab91b0f-fafb-45f3-88df-7efaff29134b",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Yeah, man... Things were quite busy for me and my family.",
             "createdAt": "2022-01-05T16:06:48.732Z"
           },
           {
             "id": "10e81481-378f-49ac-b06b-7c59dcc639ae",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "What's up? Anything I can help with?",
             "createdAt": "2022-01-05T16:06:48.732Z"
           },
           {
             "id": "3b334e72-6605-4ebd-a4f6-3850067048de",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "We've been on the move, changed 3 places over 4 months",
             "createdAt": "2022-01-05T16:07:48.732Z"
           },
           {
             "id": "25998113-3a96-4dd0-a7b9-4d2bb58db3f3",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Wow! That's crazy! 🤯 What happened?",
             "createdAt": "2022-01-05T16:07:48.732Z"
           },
           {
             "id": "30adb3da-0e4f-487e-aec2-6d9f31e097f6",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "You know I got a job in that big software company. First move was because of that.",
             "createdAt": "2022-01-05T16:08:48.732Z"
           },
           {
             "id": "c0d6fd6e-d294-4845-8751-e84b8f2c4d3b",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Then they decided to re-locate me after a month",
             "createdAt": "2022-01-05T16:08:48.732Z"
           },
           {
             "id": "8d3c442b-62fa-496f-bffa-210ff5c1866b",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Which was an absolute pain because we just set up everything, house, kids school and all that.",
             "createdAt": "2022-01-05T16:08:48.732Z"
           },
           {
             "id": "3cf26ef0-e81f-4698-ac39-487454413332",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "So we moved the second time.",
             "createdAt": "2022-01-05T16:09:48.732Z"
           },
           {
             "id": "415151b9-9ee9-40a4-a4ad-2d88146bc71b",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "It's crazy!",
             "createdAt": "2022-01-05T16:09:48.732Z"
           },
           {
             "id": "3a2d3a0e-839b-46e7-86ae-ca0826ecda7c",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Then this virus thing happened and just after a week we moved in, they decided the whole department will be working remotely.",
             "createdAt": "2022-01-05T16:10:48.732Z"
           },
           {
             "id": "5329c20d-6754-47ec-af8c-660c72be3528",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "And then we decided to move back our first location because, you know, everything was already setup so that's the third time.",
             "createdAt": "2022-01-05T16:10:48.732Z"
           },
           {
             "id": "415151b9-9ee9-40a4-a4ad-2d88146bc71b",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Ohh dude, I'm really sorry you had to go through all that in such a short period of time",
             "createdAt": "2022-01-05T16:11:48.732Z"
           },
           {
             "id": "ea7662d5-7b72-4c19-ad6c-f80320541001",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "😕",
             "createdAt": "2022-01-05T16:11:48.732Z"
           },
           {
             "id": "3a2d3a0e-839b-46e7-86ae-ca0826ecda7c",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Thanks, man! It was good catching up with you.",
             "createdAt": "2022-01-05T16:11:48.732Z"
           },
           {
             "id": "5329c20d-6754-47ec-af8c-660c72be3528",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Yeah dude. Hit me again next week so we can grab a coffee, remotely!",
             "createdAt": "2022-01-05T16:12:48.732Z"
           },
           {
             "id": "5329c20d-6754-47ec-af8c-660c72be3528",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": ":) Sure, man! See you next week!",
             "createdAt": "2022-01-05T16:12:48.732Z"
           },
           {
             "id": "5329c20d-6754-47ec-af8c-660c72be3528",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "See you later!",
             "createdAt": "2022-01-05T16:12:48.732Z"
           },
           {
             "id": "bab8ca0e-b8e5-4375-807b-1c91fca25a5d",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Hey! Are you available right now? How about if we grab that coffee today? Remotely, of course :)",
             "createdAt": "2022-01-12T09:45:48.732Z"
           },
           {
             "id": "8445a84d-599d-4e2d-a31c-5f4f29ad2b4c",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Hi!",
             "createdAt": "2022-01-12T09:56:48.732Z"
           },
           {
             "id": "9f506742-50da-4350-af9d-61e53392fa08",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "Sure thing! I'm gonna call you in 5, is it okay?",
             "createdAt": "2022-01-12T09:56:48.732Z"
           },
           {
             "id": "ca8523d8-faed-45f7-af09-f6bd5c3f3875",
             "chatId": "",
-            "contactId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "employeeId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
             "value": "Awesome! Call me in 5 minutes..",
             "createdAt": "2022-01-12T09:58:48.732Z"
           },
           {
             "id": "39944b00-1ffe-4ffb-8ca6-13c292812e06",
             "chatId": "",
-            "contactId": "",
+            "employeeId": "",
             "value": "👍🏻",
             "createdAt": "2022-01-12T10:00:48.732Z"
           }
         ]
       },
-      "chat_contacts": {
+      "chat_employees": {
         "value": [
           {
             "id": "cd5fa417-b667-482d-b208-798d9da3213c",
@@ -17351,7 +17351,7 @@
         "value": [
           {
             "id": "ff6bc7f1-449a-4419-af62-b89ce6cae0aa",
-            "contactId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
+            "employeeId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
             "unreadCount": 2,
             "muted": false,
             "lastMessage": "See you tomorrow!",
@@ -17359,7 +17359,7 @@
           },
           {
             "id": "4459a3f0-b65e-4df2-8c37-6ec72fcc4b31",
-            "contactId": "16b9e696-ea95-4dd8-86c4-3caf705a1dc6",
+            "employeeId": "16b9e696-ea95-4dd8-86c4-3caf705a1dc6",
             "unreadCount": 0,
             "muted": false,
             "lastMessage": "See you tomorrow!",
@@ -17367,7 +17367,7 @@
           },
           {
             "id": "f73a5a34-a723-4b35-8439-5289e0164c83",
-            "contactId": "bf172879-423a-4fd6-8df3-6d1938bbfe1f",
+            "employeeId": "bf172879-423a-4fd6-8df3-6d1938bbfe1f",
             "unreadCount": 1,
             "muted": false,
             "lastMessage": "See you tomorrow!",
@@ -17375,7 +17375,7 @@
           },
           {
             "id": "747f101c-0371-4ca3-9f20-cb913a80fe89",
-            "contactId": "abd9e78b-9e96-428f-b3ff-4d934c401bee",
+            "employeeId": "abd9e78b-9e96-428f-b3ff-4d934c401bee",
             "unreadCount": 0,
             "muted": true,
             "lastMessage": "See you tomorrow!",
@@ -17383,7 +17383,7 @@
           },
           {
             "id": "b3facfc4-dfc2-4ac2-b55d-cb70b3e68419",
-            "contactId": "6519600a-5eaa-45f8-8bed-c46fddb3b26a",
+            "employeeId": "6519600a-5eaa-45f8-8bed-c46fddb3b26a",
             "unreadCount": 0,
             "muted": false,
             "lastMessage": "See you tomorrow!",
@@ -21289,7 +21289,7 @@
           {
             "id": "1a680c29-7ece-4a80-9709-277ad4da8b4b",
             "categoryId": "395b0d41-b9a8-4cd6-8b5c-f07855e82d62",
-            "question": "How to contact an author",
+            "question": "How to employee an author",
             "answer": "Magna laborum et amet magna fugiat officia deserunt in exercitation aliquip nulla magna velit ea labore quis deserunt ipsum occaecat id id consequat non eiusmod mollit est voluptate ea ex.\n\nReprehenderit mollit ut excepteur minim veniam fugiat enim id pariatur amet elit nostrud occaecat pariatur et esse aliquip irure quis officia reprehenderit voluptate voluptate est et voluptate sint esse dolor."
           },
           {
@@ -21373,7 +21373,7 @@
           {
             "id": "0795a74f-7a84-4edf-8d66-296cdef70003",
             "categoryId": "bea49ee0-26da-46ad-97be-116cd7ab416d",
-            "question": "How to contact an author",
+            "question": "How to employee an author",
             "answer": "Minim commodo cillum do id qui irure aliqua laboris excepteur laboris magna enim est lorem consectetur tempor laboris proident proident eu irure dolor eiusmod in officia lorem quis laborum ullamco.\n\nQui excepteur ex sit esse dolore deserunt ullamco occaecat laboris fugiat cupidatat excepteur laboris amet dolore enim velit ipsum velit sint cupidatat consectetur cupidatat deserunt sit eu do ullamco quis."
           },
           {
@@ -22907,7 +22907,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-01.jpg",
-              "contact": "Myra Dudley <myra.dudley@company.com>"
+              "employee": "Myra Dudley <myra.dudley@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -22957,7 +22957,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-01.jpg",
-              "contact": "Shaw Murray <shaw.murray@company.com>"
+              "employee": "Shaw Murray <shaw.murray@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2022-01-25T15:56:22.073Z",
@@ -22977,7 +22977,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-02.jpg",
-              "contact": "Sanders Beck <sanders.beck@company.com>"
+              "employee": "Sanders Beck <sanders.beck@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -22998,7 +22998,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-03.jpg",
-              "contact": "Zimmerman Gould <zimmerman.gould@company.com>"
+              "employee": "Zimmerman Gould <zimmerman.gould@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2022-01-24T19:26:22.073Z",
@@ -23016,7 +23016,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-02.jpg",
-              "contact": "Karina Alford <karina.alford@company.com>"
+              "employee": "Karina Alford <karina.alford@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23037,7 +23037,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-03.jpg",
-              "contact": "Carla Gray <carla.gray@company.com>"
+              "employee": "Carla Gray <carla.gray@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23058,7 +23058,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-04.jpg",
-              "contact": "Rice Cash <rice.cash@company.com>"
+              "employee": "Rice Cash <rice.cash@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23102,7 +23102,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-04.jpg",
-              "contact": "Elaine Ortiz <elaine.ortiz@company.com>"
+              "employee": "Elaine Ortiz <elaine.ortiz@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23128,7 +23128,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-05.jpg",
-              "contact": "Fleming Stone <fleming.stone@company.com>"
+              "employee": "Fleming Stone <fleming.stone@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23153,7 +23153,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-06.jpg",
-              "contact": "England Wiley <england.wiley@company.com>"
+              "employee": "England Wiley <england.wiley@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2022-01-20T12:36:22.073Z",
@@ -23175,7 +23175,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-07.jpg",
-              "contact": "Ingram Fowler <ingram.fowler@company.com>"
+              "employee": "Ingram Fowler <ingram.fowler@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-01-07T03:51:20.000Z",
@@ -23193,7 +23193,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-05.jpg",
-              "contact": "Diana Walsh <diana.walsh@company.com>"
+              "employee": "Diana Walsh <diana.walsh@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-06-29T07:37:52.000Z",
@@ -23238,7 +23238,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-08.jpg",
-              "contact": "Mckinney Marsh <mckinney.marsh@company.com>"
+              "employee": "Mckinney Marsh <mckinney.marsh@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-06-20T15:24:03.000Z",
@@ -23262,7 +23262,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-09.jpg",
-              "contact": "Meyer Fuller <meyer.fuller@company.com>"
+              "employee": "Meyer Fuller <meyer.fuller@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23289,7 +23289,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-06.jpg",
-              "contact": "Carolina Wade <carolina.wade@company.com>"
+              "employee": "Carolina Wade <carolina.wade@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23314,7 +23314,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-10.jpg",
-              "contact": "Graves Huber <graves.huber@company.com>"
+              "employee": "Graves Huber <graves.huber@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-03-25T02:46:44.000Z",
@@ -23334,7 +23334,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-11.jpg",
-              "contact": "Tucker Santiago <tucker.santiago@company.com>"
+              "employee": "Tucker Santiago <tucker.santiago@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-09-17T14:41:42.000Z",
@@ -23358,7 +23358,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-07.jpg",
-              "contact": "Becky Cain <becky.cain@company.com>"
+              "employee": "Becky Cain <becky.cain@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23404,7 +23404,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-12.jpg",
-              "contact": "Miller Vazquez <miller.vazquez@company.com>"
+              "employee": "Miller Vazquez <miller.vazquez@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23430,7 +23430,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-13.jpg",
-              "contact": "Delgado Stevens <delgado.stevens@company.com>"
+              "employee": "Delgado Stevens <delgado.stevens@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23456,7 +23456,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-08.jpg",
-              "contact": "Concepcion Cleveland <concepcion.cleveland@company.com>"
+              "employee": "Concepcion Cleveland <concepcion.cleveland@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-08-17T04:41:26.000Z",
@@ -23478,7 +23478,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-09.jpg",
-              "contact": "Robin Berger <robin.berger@company.com>"
+              "employee": "Robin Berger <robin.berger@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23501,7 +23501,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-10.jpg",
-              "contact": "Lynnette Burton <lynnette.burton@company.com>"
+              "employee": "Lynnette Burton <lynnette.burton@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23522,7 +23522,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-11.jpg",
-              "contact": "Carmella Rios <carmella.rios@company.com>"
+              "employee": "Carmella Rios <carmella.rios@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23546,7 +23546,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-14.jpg",
-              "contact": "Molina Pace <molina.pace@company.com>"
+              "employee": "Molina Pace <molina.pace@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-09-17T21:45:31.000Z",
@@ -23581,7 +23581,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-12.jpg",
-              "contact": "Olga Osborn <olga.osborn@company.com>"
+              "employee": "Olga Osborn <olga.osborn@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23609,7 +23609,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-13.jpg",
-              "contact": "Brooke Petersen <brooke.petersen@company.com>"
+              "employee": "Brooke Petersen <brooke.petersen@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23635,7 +23635,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-15.jpg",
-              "contact": "Estes Walter <estes.walter@company.com>"
+              "employee": "Estes Walter <estes.walter@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23658,7 +23658,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-16.jpg",
-              "contact": "Holman Oconnor <holman.oconnor@company.com>"
+              "employee": "Holman Oconnor <holman.oconnor@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-01-13T22:30:44.000Z",
@@ -23678,7 +23678,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-17.jpg",
-              "contact": "Oneill Irwin <oneill.irwin@company.com>"
+              "employee": "Oneill Irwin <oneill.irwin@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23706,7 +23706,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-14.jpg",
-              "contact": "Marcie Morgan <marcie.morgan@company.com>"
+              "employee": "Marcie Morgan <marcie.morgan@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23727,7 +23727,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-18.jpg",
-              "contact": "Crane Trevino <crane.trevino@company.com>"
+              "employee": "Crane Trevino <crane.trevino@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23755,7 +23755,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-15.jpg",
-              "contact": "Kristine Wiggins <kristine.wiggins@company.com>"
+              "employee": "Kristine Wiggins <kristine.wiggins@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23800,7 +23800,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-16.jpg",
-              "contact": "Terrie Carney <terrie.carney@company.com>"
+              "employee": "Terrie Carney <terrie.carney@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23821,7 +23821,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-19.jpg",
-              "contact": "Goff Jennings <goff.jennings@company.com>"
+              "employee": "Goff Jennings <goff.jennings@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23848,7 +23848,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-20.jpg",
-              "contact": "Browning Sanchez <browning.sanchez@company.com>"
+              "employee": "Browning Sanchez <browning.sanchez@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23873,7 +23873,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-01.jpg",
-              "contact": "Carey Lyons <carey.lyons@company.com>"
+              "employee": "Carey Lyons <carey.lyons@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-05-01T07:56:59.000Z",
@@ -23893,7 +23893,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-02.jpg",
-              "contact": "Hendrix Goodwin <hendrix.goodwin@company.com>"
+              "employee": "Hendrix Goodwin <hendrix.goodwin@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-01-22T19:04:29.000Z",
@@ -23916,7 +23916,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-17.jpg",
-              "contact": "Leticia Fulton <leticia.fulton@company.com>"
+              "employee": "Leticia Fulton <leticia.fulton@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23939,7 +23939,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-18.jpg",
-              "contact": "Carmen Shannon <carmen.shannon@company.com>"
+              "employee": "Carmen Shannon <carmen.shannon@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23963,7 +23963,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-19.jpg",
-              "contact": "Hattie Snow <hattie.snow@company.com>"
+              "employee": "Hattie Snow <hattie.snow@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -23990,7 +23990,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-20.jpg",
-              "contact": "Brandi Bradley <brandi.bradley@company.com>"
+              "employee": "Brandi Bradley <brandi.bradley@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-11-17T10:51:44.000Z",
@@ -24026,7 +24026,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-01.jpg",
-              "contact": "Patsy Potter <patsy.potter@company.com>"
+              "employee": "Patsy Potter <patsy.potter@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24047,7 +24047,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-02.jpg",
-              "contact": "Kathleen Cox <kathleen.cox@company.com>"
+              "employee": "Kathleen Cox <kathleen.cox@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24068,7 +24068,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-03.jpg",
-              "contact": "Kristina Ramirez <kristina.ramirez@company.com>"
+              "employee": "Kristina Ramirez <kristina.ramirez@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-03-06T16:13:56.000Z",
@@ -24091,7 +24091,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-03.jpg",
-              "contact": "Mays Glass <mays.glass@company.com>"
+              "employee": "Mays Glass <mays.glass@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-01-04T11:10:36.000Z",
@@ -24113,7 +24113,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-04.jpg",
-              "contact": "Barber Zimmerman <barber.zimmerman@company.com>"
+              "employee": "Barber Zimmerman <barber.zimmerman@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24136,7 +24136,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-04.jpg",
-              "contact": "Ginger Fry <ginger.fry@company.com>"
+              "employee": "Ginger Fry <ginger.fry@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24161,7 +24161,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-05.jpg",
-              "contact": "Gardner Burnett <gardner.burnett@company.com>"
+              "employee": "Gardner Burnett <gardner.burnett@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-03-19T13:34:20.000Z",
@@ -24182,7 +24182,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-05.jpg",
-              "contact": "Lula Lucas <lula.lucas@company.com>"
+              "employee": "Lula Lucas <lula.lucas@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24210,7 +24210,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-06.jpg",
-              "contact": "Mcguire Crosby <mcguire.crosby@company.com>"
+              "employee": "Mcguire Crosby <mcguire.crosby@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-03-09T04:54:41.000Z",
@@ -24231,7 +24231,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-07.jpg",
-              "contact": "Walsh Bender <walsh.bender@company.com>"
+              "employee": "Walsh Bender <walsh.bender@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24271,7 +24271,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-08.jpg",
-              "contact": "Baker Guthrie <baker.guthrie@company.com>"
+              "employee": "Baker Guthrie <baker.guthrie@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24296,7 +24296,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-06.jpg",
-              "contact": "Olivia Ratliff <olivia.ratliff@company.com>"
+              "employee": "Olivia Ratliff <olivia.ratliff@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24320,7 +24320,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-09.jpg",
-              "contact": "Schneider Kirby <schneider.kirby@company.com>"
+              "employee": "Schneider Kirby <schneider.kirby@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24348,7 +24348,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-10.jpg",
-              "contact": "Griffith Keith <griffith.keith@company.com>"
+              "employee": "Griffith Keith <griffith.keith@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-12-11T06:27:01.000Z",
@@ -24371,7 +24371,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-07.jpg",
-              "contact": "Beverly Pugh <beverly.pugh@company.com>"
+              "employee": "Beverly Pugh <beverly.pugh@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24397,7 +24397,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-08.jpg",
-              "contact": "Ila Mclaughlin <ila.mclaughlin@company.com>"
+              "employee": "Ila Mclaughlin <ila.mclaughlin@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-08-01T13:55:15.000Z",
@@ -24421,7 +24421,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-09.jpg",
-              "contact": "Jenna Manning <jenna.manning@company.com>"
+              "employee": "Jenna Manning <jenna.manning@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24447,7 +24447,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-10.jpg",
-              "contact": "Deann Hansen <deann.hansen@company.com>"
+              "employee": "Deann Hansen <deann.hansen@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24470,7 +24470,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-11.jpg",
-              "contact": "Tisha Moore <tisha.moore@company.com>"
+              "employee": "Tisha Moore <tisha.moore@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-03-07T05:58:09.000Z",
@@ -24493,7 +24493,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-12.jpg",
-              "contact": "Janette Elliott <janette.elliott@company.com>"
+              "employee": "Janette Elliott <janette.elliott@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24517,7 +24517,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-13.jpg",
-              "contact": "Bettie Wyatt <bettie.wyatt@company.com>"
+              "employee": "Bettie Wyatt <bettie.wyatt@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-12-03T17:07:32.000Z",
@@ -24538,7 +24538,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-11.jpg",
-              "contact": "Hardy Dale <hardy.dale@company.com>"
+              "employee": "Hardy Dale <hardy.dale@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24562,7 +24562,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-14.jpg",
-              "contact": "Eileen Bush <eileen.bush@company.com>"
+              "employee": "Eileen Bush <eileen.bush@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-02-24T12:22:13.000Z",
@@ -24582,7 +24582,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-15.jpg",
-              "contact": "Melody Mcintosh <melody.mcintosh@company.com>"
+              "employee": "Melody Mcintosh <melody.mcintosh@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24605,7 +24605,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-12.jpg",
-              "contact": "Dale Talley <dale.talley@company.com>"
+              "employee": "Dale Talley <dale.talley@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24631,7 +24631,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-13.jpg",
-              "contact": "Britt Massey <britt.massey@company.com>"
+              "employee": "Britt Massey <britt.massey@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24658,7 +24658,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-16.jpg",
-              "contact": "Madelyn Haynes <madelyn.haynes@company.com>"
+              "employee": "Madelyn Haynes <madelyn.haynes@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24685,7 +24685,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-14.jpg",
-              "contact": "Rowland Sweet <rowland.sweet@company.com>"
+              "employee": "Rowland Sweet <rowland.sweet@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24707,7 +24707,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-17.jpg",
-              "contact": "Fern Shaw <fern.shaw@company.com>"
+              "employee": "Fern Shaw <fern.shaw@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24728,7 +24728,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-18.jpg",
-              "contact": "Lorraine Ballard <lorraine.ballard@company.com>"
+              "employee": "Lorraine Ballard <lorraine.ballard@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24753,7 +24753,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-15.jpg",
-              "contact": "Jennings Franklin <jennings.franklin@company.com>"
+              "employee": "Jennings Franklin <jennings.franklin@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24775,7 +24775,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-19.jpg",
-              "contact": "Colette Cole <colette.cole@company.com>"
+              "employee": "Colette Cole <colette.cole@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-09-21T08:37:21.000Z",
@@ -24797,7 +24797,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-20.jpg",
-              "contact": "Kim Carlson <kim.carlson@company.com>"
+              "employee": "Kim Carlson <kim.carlson@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24822,7 +24822,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-01.jpg",
-              "contact": "Rena Park <rena.park@company.com>"
+              "employee": "Rena Park <rena.park@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24843,7 +24843,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-16.jpg",
-              "contact": "Haney Gibson <haney.gibson@company.com>"
+              "employee": "Haney Gibson <haney.gibson@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24865,7 +24865,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-02.jpg",
-              "contact": "Freda Frank <freda.frank@company.com>"
+              "employee": "Freda Frank <freda.frank@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24888,7 +24888,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-17.jpg",
-              "contact": "Burns White <burns.white@company.com>"
+              "employee": "Burns White <burns.white@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24909,7 +24909,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-18.jpg",
-              "contact": "Fischer Cervantes <fischer.cervantes@company.com>"
+              "employee": "Fischer Cervantes <fischer.cervantes@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-12-13T03:52:15.000Z",
@@ -24930,7 +24930,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-19.jpg",
-              "contact": "Cervantes Reyes <cervantes.reyes@company.com>"
+              "employee": "Cervantes Reyes <cervantes.reyes@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24955,7 +24955,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-20.jpg",
-              "contact": "Cooke Whitney <cooke.whitney@company.com>"
+              "employee": "Cooke Whitney <cooke.whitney@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-07-28T14:16:37.000Z",
@@ -24973,7 +24973,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-03.jpg",
-              "contact": "Lee Lloyd <lee.lloyd@company.com>"
+              "employee": "Lee Lloyd <lee.lloyd@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -24999,7 +24999,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-01.jpg",
-              "contact": "Benson Shields <benson.shields@company.com>"
+              "employee": "Benson Shields <benson.shields@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25021,7 +25021,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-02.jpg",
-              "contact": "Emerson Whitehead <emerson.whitehead@company.com>"
+              "employee": "Emerson Whitehead <emerson.whitehead@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25048,7 +25048,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-04.jpg",
-              "contact": "Annabelle Greene <annabelle.greene@company.com>"
+              "employee": "Annabelle Greene <annabelle.greene@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25071,7 +25071,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-03.jpg",
-              "contact": "Dawson Lewis <dawson.lewis@company.com>"
+              "employee": "Dawson Lewis <dawson.lewis@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-08-03T03:03:12.000Z",
@@ -25094,7 +25094,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-04.jpg",
-              "contact": "Cole Dotson <cole.dotson@company.com>"
+              "employee": "Cole Dotson <cole.dotson@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25121,7 +25121,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-05.jpg",
-              "contact": "Bernard Cunningham <bernard.cunningham@company.com>"
+              "employee": "Bernard Cunningham <bernard.cunningham@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-08-21T08:51:03.000Z",
@@ -25144,7 +25144,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-06.jpg",
-              "contact": "Edwards Mcconnell <edwards.mcconnell@company.com>"
+              "employee": "Edwards Mcconnell <edwards.mcconnell@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25169,7 +25169,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-05.jpg",
-              "contact": "Lizzie Sanders <lizzie.sanders@company.com>"
+              "employee": "Lizzie Sanders <lizzie.sanders@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25196,7 +25196,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-06.jpg",
-              "contact": "Elise Hicks <elise.hicks@company.com>"
+              "employee": "Elise Hicks <elise.hicks@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25220,7 +25220,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-07.jpg",
-              "contact": "Sherri Roth <sherri.roth@company.com>"
+              "employee": "Sherri Roth <sherri.roth@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25245,7 +25245,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-07.jpg",
-              "contact": "Skinner Hawkins <skinner.hawkins@company.com>"
+              "employee": "Skinner Hawkins <skinner.hawkins@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -25269,7 +25269,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-08.jpg",
-              "contact": "Velma Ellison <velma.ellison@company.com>"
+              "employee": "Velma Ellison <velma.ellison@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-11-01T10:59:46.000Z",
@@ -25290,7 +25290,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-09.jpg",
-              "contact": "Tamara Fitzgerald <tamara.fitzgerald@company.com>"
+              "employee": "Tamara Fitzgerald <tamara.fitzgerald@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-02-24T15:37:16.000Z",
@@ -25310,7 +25310,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-08.jpg",
-              "contact": "Duncan Gilmore <duncan.gilmore@company.com>"
+              "employee": "Duncan Gilmore <duncan.gilmore@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-12-31T08:15:40.000Z",
@@ -25328,7 +25328,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/female-10.jpg",
-              "contact": "Betty Dean <betty.dean@company.com>"
+              "employee": "Betty Dean <betty.dean@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-08-16T06:17:15.000Z",
@@ -25351,7 +25351,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-09.jpg",
-              "contact": "Pate Gardner <pate.gardner@company.com>"
+              "employee": "Pate Gardner <pate.gardner@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "date": "2018-05-26T10:36:30.000Z",
@@ -25369,7 +25369,7 @@
             "type": "mail",
             "from": {
               "avatar": "assets/images/avatars/male-10.jpg",
-              "contact": "Lawson Kidd <lawson.kidd@company.com>"
+              "employee": "Lawson Kidd <lawson.kidd@company.com>"
             },
             "to": "me <hughes.brian@company.com>",
             "cc": [
@@ -30651,15 +30651,15 @@
           "compress",
           "computer",
           "confirmation_number",
-          "connect_without_contact",
+          "connect_without_employee",
           "connected_tv",
           "construction",
-          "contact_mail",
-          "contact_page",
-          "contact_phone",
-          "contact_support",
-          "contactless",
-          "contacts",
+          "employee_mail",
+          "employee_page",
+          "employee_phone",
+          "employee_support",
+          "employeeless",
+          "employees",
           "content_copy",
           "content_cut",
           "content_paste",
@@ -31091,7 +31091,7 @@
           "image_not_supported",
           "image_search",
           "imagesearch_roller",
-          "import_contacts",
+          "import_employees",
           "import_export",
           "important_devices",
           "inbox",
@@ -31421,7 +31421,7 @@
           "people_alt",
           "people_outline",
           "perm_camera_mic",
-          "perm_contact_calendar",
+          "perm_employee_calendar",
           "perm_data_setting",
           "perm_device_information",
           "perm_identity",
@@ -32671,7 +32671,7 @@
               }
             ]
           },
-          "contact": {
+          "employee": {
             "address": "Ut pharetra luctus est quis sodales. Duis nisi tortor, bibendum eget tincidunt, aliquam ac elit. Mauris nec euismod odio.",
             "tel": [
               "+6 555 6600",
@@ -32761,7 +32761,7 @@
               "shortcuts": [
                 "apps.calendar",
                 "apps.mailbox",
-                "apps.contacts"
+                "apps.employees"
               ]
             }
           },
@@ -32798,7 +32798,7 @@
               "shortcuts": [
                 "apps.calendar",
                 "apps.mailbox",
-                "apps.contacts",
+                "apps.employees",
                 "apps.tasks"
               ]
             }

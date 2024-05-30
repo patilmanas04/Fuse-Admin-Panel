@@ -7,27 +7,27 @@ import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import ListItemButton from '@mui/material/ListItemButton';
 
 /**
- * The contact list item.
+ * The employee list item.
  */
-function ContactListItem(props) {
-	const { contact } = props;
+function EmployeeListItem(props) {
+	const { employee } = props;
 	return (
 		<>
 			<ListItemButton
 				className="px-32 py-16"
 				sx={{ bgcolor: 'background.paper' }}
 				component={NavLinkAdapter}
-				to={`/apps/contacts/${contact.id}`}
+				to={`/apps/employees/${employee.id}`}
 			>
 				<ListItemAvatar>
 					<Avatar
-						alt={contact.name}
-						src={contact.avatar}
+						alt={employee.name}
+						src={employee.avatar}
 					/>
 				</ListItemAvatar>
 				<ListItemText
 					classes={{ root: 'm-0', primary: 'font-medium leading-5 truncate' }}
-					primary={contact.name}
+					primary={employee.name}
 					secondary={
 						<Typography
 							className="inline"
@@ -35,7 +35,7 @@ function ContactListItem(props) {
 							variant="body2"
 							color="text.secondary"
 						>
-							{contact.title}
+							{employee.title}
 						</Typography>
 					}
 				/>
@@ -45,4 +45,4 @@ function ContactListItem(props) {
 	);
 }
 
-export default ContactListItem;
+export default EmployeeListItem;
