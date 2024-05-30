@@ -4,16 +4,16 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { useAppSelector } from 'app/store/hooks';
-import ContactListItem from './ContactListItem';
-import { selectFilteredContactList, selectGroupedFilteredContacts, useGetContactsListQuery } from './ContactsApi';
+import EmployeeListItem from './EmployeeListItem';
+import { selectFilteredEmployeeList, selectGroupedFilteredEmployees, useGetEmployeesListQuery } from './EmployeesApi';
 
 /**
- * The contacts list.
+ * The employees list.
  */
 function EmployeesList() {
-	const { data, isLoading } = useGetContactsListQuery();
-	const filteredData = useAppSelector(selectFilteredContactList(data));
-	const groupedFilteredContacts = useAppSelector(selectGroupedFilteredContacts(filteredData));
+	const { data, isLoading } = useGetEmployeesListQuery();
+	const filteredData = useAppSelector(selectFilteredEmployeeList(data));
+	const groupedFilteredEmployees = useAppSelector(selectGroupedFilteredEmployees(filteredData));
 
 	if (isLoading) {
 		return <FuseLoading />;
@@ -26,7 +26,7 @@ function EmployeesList() {
 					color="text.secondary"
 					variant="h5"
 				>
-					There are no contacts!
+					There are no employees!
 				</Typography>
 			</div>
 		);
@@ -38,7 +38,7 @@ function EmployeesList() {
 			animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
 			className="flex flex-col flex-auto w-full max-h-full"
 		>
-			{Object.entries(groupedFilteredContacts).map(([key, group]) => {
+			{Object.entries(groupedFilteredEmployees).map(([key, group]) => {
 				return (
 					<div
 						key={key}
@@ -53,9 +53,9 @@ function EmployeesList() {
 						<Divider />
 						<List className="w-full m-0 p-0">
 							{group?.children?.map((item) => (
-								<ContactListItem
+								<EmployeeListItem
 									key={item.id}
-									contact={item}
+									employee={item}
 								/>
 							))}
 						</List>

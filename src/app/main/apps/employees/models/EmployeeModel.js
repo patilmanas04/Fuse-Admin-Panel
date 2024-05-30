@@ -1,32 +1,32 @@
 import _ from '@lodash';
 /**
- * The contact phone number model.
+ * The employee phone number model.
  */
-export const ContactPhoneModel = (data) =>
+export const EmployeePhoneModel = (data) =>
 	_.defaults(data || {}, {
 		country: '',
 		phoneNumber: '',
 		label: ''
 	});
 /**
- * The contact email model.
+ * The employee email model.
  */
-export const ContactEmailModel = (data) =>
+export const EmployeeEmailModel = (data) =>
 	_.defaults(data || {}, {
 		email: '',
 		label: ''
 	});
 /**
- * The contact model.
+ * The employee model.
  */
-const ContactModel = (data) =>
+const EmployeeModel = (data) =>
 	_.defaults(data || {}, {
 		id: _.uniqueId(),
 		avatar: '',
 		background: '',
 		name: '',
-		emails: [ContactEmailModel(null)],
-		phoneNumbers: [ContactPhoneModel(null)],
+		emails: [EmployeeEmailModel(null)],
+		phoneNumbers: [EmployeePhoneModel(null)],
 		title: '',
 		company: '',
 		birthday: '',
@@ -34,4 +34,4 @@ const ContactModel = (data) =>
 		notes: '',
 		tags: []
 	});
-export default ContactModel;
+export default EmployeeModel;

@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import CountryCodeSelector from './CountryCodeSelector';
-// Zod schema for ContactPhoneNumber
+// Zod schema for EmployeePhoneNumber
 const schema = z.object({
 	country: z.string().optional(),
 	phoneNumber: z.string().optional(),

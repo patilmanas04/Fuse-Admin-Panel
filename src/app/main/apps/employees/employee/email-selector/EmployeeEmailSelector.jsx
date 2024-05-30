@@ -2,23 +2,20 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
-import FormHelperText from '@mui/material/FormHelperText';
-import PhoneNumberInput from './PhoneNumberInput';
-import { ContactPhoneModel } from '../../models/ContactModel';
+import EmailInput from './EmailInput';
+import { EmployeeEmailModel } from '../../models/EmployeeModel';
 /**
- * The phone number selector.
+ * The employee email selector.
  */
-const PhoneNumberSelector = forwardRef((props, ref) => {
-	const { value, onChange, className, error, helperText } = props;
+const EmployeeEmailSelector = forwardRef((props, ref) => {
+	const { value, onChange, className } = props;
 	return (
 		<div
 			className={clsx('w-full', className)}
 			ref={ref}
 		>
-			{error && helperText && <FormHelperText error={error}>{helperText}</FormHelperText>}
-
-			{value.map((item, index) => (
-				<PhoneNumberInput
+			{value?.map((item, index) => (
+				<EmailInput
 					value={item}
 					key={index}
 					onChange={(val) => {
@@ -32,13 +29,13 @@ const PhoneNumberSelector = forwardRef((props, ref) => {
 			))}
 			<Button
 				className="group inline-flex items-center mt-2 -ml-4 py-2 px-4 rounded cursor-pointer"
-				onClick={() => onChange([...value, ContactPhoneModel({})])}
+				onClick={() => value && onChange([...value, EmployeeEmailModel({})])}
 			>
 				<FuseSvgIcon size={20}>heroicons-solid:plus-circle</FuseSvgIcon>
 
-				<span className="ml-8 font-medium text-secondary group-hover:underline">Add a phone number</span>
+				<span className="ml-8 font-medium text-secondary group-hover:underline">Add an email address</span>
 			</Button>
 		</div>
 	);
 });
-export default PhoneNumberSelector;
+export default EmployeeEmailSelector;

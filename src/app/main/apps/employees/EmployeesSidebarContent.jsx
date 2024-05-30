@@ -4,16 +4,16 @@ import { Outlet } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 /**
- * The contacts sidebar content.
+ * The employees sidebar content.
  */
-function ContactsSidebarContent() {
+function EmployeesSidebarContent() {
 	return (
 		<div className="flex flex-col flex-auto max-w-full w-md">
 			<IconButton
 				className="absolute top-0 right-0 my-16 mx-32 z-10"
 				sx={{ color: 'white' }}
 				component={NavLinkAdapter}
-				to="/apps/contacts"
+				to="/apps/employees"
 				size="large"
 			>
 				<FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
@@ -24,4 +24,4 @@ function ContactsSidebarContent() {
 	);
 }
 
-export default ContactsSidebarContent;
+export default EmployeesSidebarContent;
