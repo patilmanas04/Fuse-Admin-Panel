@@ -36,27 +36,27 @@ function NavbarStyle1Content(props) {
 		<Root className={clsx('flex h-full flex-auto flex-col overflow-hidden', className)}>
 			<div className="flex h-48 shrink-0 flex-row items-center px-20 md:h-72">
 				<div className="mx-4 flex flex-1">
-					<Logo />
+					{/* <Logo /> */}
 				</div>
 
 				<NavbarToggleButton className="h-40 w-40 p-0" />
 			</div>
 
 			<StyledContent
-				className="flex min-h-0 flex-1 flex-col"
+				className="flex min-h-0 flex-1 flex-col mb-16 overflow-y-auto"
 				option={{ suppressScrollX: true, wheelPropagation: false }}
 			>
 				<UserNavbarHeader />
 
 				<Navigation layout="vertical" />
 
-				<div className="flex-0 flex items-center justify-center py-48 opacity-10">
+				{/* <div className="flex-0 flex items-center justify-center py-48 opacity-10">
 					<img
 						className="w-full max-w-64"
 						src="assets/images/logo/logo.svg"
 						alt="footer logo"
 					/>
-				</div>
+				</div> */}
 			</StyledContent>
 		</Root>
 	);

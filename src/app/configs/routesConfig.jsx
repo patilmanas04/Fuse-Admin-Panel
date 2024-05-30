@@ -8,6 +8,7 @@ import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
 import ProjectDashboardApp from '../main/dashboards/project/ProjectDashboardApp';
+import AnalyticsDashboardApp from '../main/dashboards/analytics copy/AnalyticsDashboardApp';
 
 const routeConfigs = [ExampleConfig, SignOutConfig, SignInConfig, SignUpConfig];
 /**
@@ -36,6 +37,11 @@ const routes = [
 		path: '/dashboards/project',
 		element: <ProjectDashboardApp />,
 		auth: settingsConfig.defaultAuth
-	}
+	},
+	{
+		path: '/dashboards/analytics',
+		element: <AnalyticsDashboardApp />,
+		auth: settingsConfig.defaultAuth
+	},
 ];
 export default routes;

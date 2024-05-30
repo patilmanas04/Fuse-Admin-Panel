@@ -42,7 +42,7 @@ function UpcomingAppointmentsWidget() {
 			</div>
 			<div className="text-center mt-8">
 				<Typography className="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-grey-500">
-					{/* {String(data.count)}/ */}99
+					{/* {String(data.count)} */}99
 				</Typography>
 			</div>
 			{/* <Typography
