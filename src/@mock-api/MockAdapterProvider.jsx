@@ -12,7 +12,7 @@ import { financeDashboardApiMocks } from './api/dashboards/finance-api';
 import { analyticsDashboardApiMocks } from './api/dashboards/analytics-api';
 import { cryptoDashboardApiMocks } from './api/dashboards/crypto-api';
 import { projectDashboardApiMocks } from './api/dashboards/project-api';
-// import { iconsApiMocks } from './api/ui/icons-api';
+import { iconsApiMocks } from './api/ui/icons-api';
 import { academyApiMocks } from './api/academy-api';
 import { countriesApiMocks } from './api/countries-api';
 import { eCommerceApiMocks } from './api/ecommerce-api';
@@ -43,7 +43,7 @@ function MockAdapterProvider(props) {
 				cryptoDashboardApiMocks,
 				financeDashboardApiMocks,
 				projectDashboardApiMocks,
-				// iconsApiMocks,
+				iconsApiMocks,
 				academyApiMocks,
 				authApiMocks,
 				calendarApiMocks,
