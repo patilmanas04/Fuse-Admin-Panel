@@ -54,6 +54,13 @@ const navigationConfig = [
 				icon: 'heroicons-outline:user',
 			},
 			{
+				id: 'applications.chats',
+				title: 'Chats',
+				type: 'item',
+				url: 'apps/messenger',
+				icon: 'heroicons-outline:chat',
+			},
+			{
 				id: 'applications.crm',
 				title: 'CRM',
 				type: 'collapse',
@@ -63,18 +70,21 @@ const navigationConfig = [
 						id: 'applications.crm.inquiries',
 						title: 'Inquiries',
 						type: 'item',
+						icon: 'heroicons-outline:information-circle',
 						url: 'apps/crm/inquiries',
 					},
 					{
 						id: 'applications.crm.deals',
 						title: 'Deals',
 						type: 'item',
+						icon: 'material-outline:business_center',
 						url: 'apps/crm/deals',
 					},
 					{
 						id: 'applications.crm.totalpayments',
 						title: 'Total Payments',
 						type: 'item',
+						icon: 'heroicons-outline:currency-rupee',
 						url: 'apps/crm/totalpayments',
 					},
 				]
@@ -139,7 +149,7 @@ const navigationConfig = [
 				title: 'Expenses',
 				type: 'item',
 				url: 'apps/expenses',
-				icon: 'heroicons-outline:currency-dollar',
+				icon: 'heroicons-outline:currency-rupee',
 			},
 			{
 				id: 'applications.bodyassessmentreports',

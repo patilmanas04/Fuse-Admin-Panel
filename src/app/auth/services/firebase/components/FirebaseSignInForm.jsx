@@ -131,8 +131,8 @@ function FirebaseSignInForm() {
 					)}
 				/>
 
-				<div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between">
-					<Controller
+				<div className="flex flex-col items-center justify-center sm:flex-row sm:justify-center">
+					{/* <Controller
 						name="remember"
 						control={control}
 						render={({ field }) => (
@@ -148,7 +148,7 @@ function FirebaseSignInForm() {
 								/>
 							</FormControl>
 						)}
-					/>
+					/> */}
 
 					<Link
 						className="text-md font-medium"

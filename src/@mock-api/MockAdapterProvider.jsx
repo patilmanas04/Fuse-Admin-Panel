@@ -5,10 +5,11 @@ import { useAppDispatch } from 'app/store/hooks';
 import apiService from 'app/store/apiService';
 import ExtendedMockAdapter from './ExtendedMockAdapter';
 import { authApiMocks } from './api/auth-api';
-// import { notificationsApiMocks } from './api/notifications-api';
+import { notificationsApiMocks } from './api/notifications-api';
 import { messengerApiMocks } from './api/messenger-api';
 import { financeDashboardApiMocks } from './api/dashboards/finance-api';
 import { employeesApiMocks } from './api/employees-api';
+import { clientsApiMocks } from './api/clients-api';
 import { analyticsDashboardApiMocks } from './api/dashboards/analytics-api';
 import { cryptoDashboardApiMocks } from './api/dashboards/crypto-api';
 import { projectDashboardApiMocks } from './api/dashboards/project-api';
@@ -48,6 +49,7 @@ function MockAdapterProvider(props) {
 				authApiMocks,
 				calendarApiMocks,
 				employeesApiMocks,
+				clientsApiMocks,
 				countriesApiMocks,
 				eCommerceApiMocks,
 				fileManagerApiMocks,
@@ -55,7 +57,7 @@ function MockAdapterProvider(props) {
 				mailBoxApiMocks,
 				messengerApiMocks,
 				notesApiMocks,
-				// notificationsApiMocks,
+				notificationsApiMocks,
 				profileApiMocks,
 				// scrumboardApiMocks,
 				tasksApiMocks

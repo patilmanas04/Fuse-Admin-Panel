@@ -19,6 +19,7 @@ import ConsultantsSalesWidget from './widgets/ConsultantsSalesWidget';
 import MemberAgeGroupWidget from './widgets/MemberAgeGroupWidget';
 import PaymentsEfficiencyWidget from './widgets/PaymentsEfficiencyWidget';
 import { useGetAnalyticsDashboardWidgetsQuery } from './AnalyticsDashboardApi';
+import { useEffect } from 'react';
 
 const container = {
 	show: {
@@ -36,6 +37,10 @@ const item = {
  * The analytics dashboard app.
  */
 function AnalyticsDashboardApp() {
+	useEffect(() => {
+		document.title = "Dashboard - Analytics"
+	}, [])
+
 	const { isLoading } = useGetAnalyticsDashboardWidgetsQuery();
 
 	if (isLoading) {

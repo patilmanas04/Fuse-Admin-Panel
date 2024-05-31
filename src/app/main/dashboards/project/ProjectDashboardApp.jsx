@@ -1,7 +1,7 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import FuseLoading from '@fuse/core/FuseLoading';
@@ -22,6 +22,10 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
  * The ProjectDashboardApp page.
  */
 function ProjectDashboardApp() {
+	useEffect(() => {
+		document.title = "Dashboard - Project"
+	}, [])
+
 	const { isLoading } = useGetProjectDashboardWidgetsQuery();
 	const [tabValue, setTabValue] = useState(0);
 

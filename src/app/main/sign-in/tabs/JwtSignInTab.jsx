@@ -8,7 +8,7 @@ function jwtSignInTab() {
 		<div className="w-full">
 			<JwtSignInForm />
 
-			<div className="mt-32 flex items-center">
+			{/* <div className="mt-32 flex items-center">
 				<div className="mt-px flex-auto border-t" />
 				<Typography
 					className="mx-8"
@@ -53,7 +53,7 @@ function jwtSignInTab() {
 						feather:github
 					</FuseSvgIcon>
 				</Button>
-			</div>
+			</div> */}
 		</div>
 	);
 }
