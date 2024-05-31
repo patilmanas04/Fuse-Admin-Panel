@@ -106,12 +106,14 @@ const navigationConfig = [
 						id: 'applications.projectmanagement.createaplan',
 						title: 'Create a Plan',
 						type: 'item',
+						icon: 'heroicons-outline:plus',
 						url: 'apps/projectmanagement/createaplan',
 					},
 					{
 						id: 'applications.projectmanagement.createaprogram',
 						title: 'Create a Program',
 						type: 'item',
+						icon: 'material-solid:playlist_add',
 						url: 'apps/projectmanagement/createaprogram',
 					},
 				]
@@ -175,6 +177,7 @@ const navigationConfig = [
 						id: 'applications.membership.gymmembership',
 						title: 'Gym Membership',
 						type: 'item',
+						icon: 'material-outline:receipt_long',
 						url: 'apps/membership/gymmembership',
 					},
 				]
