@@ -10,10 +10,8 @@ import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
 import ProjectDashboardApp from '../main/dashboards/project/ProjectDashboardApp';
 import AnalyticsDashboardApp from '../main/dashboards/analytics copy/AnalyticsDashboardApp';
-import EmployeesApp from '../main/apps/employees/EmployeesApp';
 
 const routeConfigs = [
-	ExampleConfig,
 	SignOutConfig,
 	SignInConfig,
 	SignUpConfig,
@@ -26,7 +24,7 @@ const routes = [
 	...FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
 	{
 		path: '/',
-		element: <Navigate to="/example" />,
+		element: <Navigate to="/dashboards/project" />,
 		auth: settingsConfig.defaultAuth
 	},
 	{
@@ -41,20 +39,15 @@ const routes = [
 		path: '*',
 		element: <Navigate to="404" />
 	},
-	// {
-	// 	path: '/dashboards/project',
-	// 	element: <ProjectDashboardApp />,
-	// 	auth: settingsConfig.defaultAuth
-	// },
-	// {
-	// 	path: '/dashboards/analytics',
-	// 	element: <AnalyticsDashboardApp />,
-	// 	auth: settingsConfig.defaultAuth
-	// },
-	// {
-	// 	path: '/apps/employees',
-	// 	element: <EmployeesApp />,
-	// 	auth: settingsConfig.defaultAuth
-	// },
+	{
+		path: '/dashboards/project',
+		element: <ProjectDashboardApp />,
+		auth: settingsConfig.defaultAuth
+	},
+	{
+		path: '/dashboards/analytics',
+		element: <AnalyticsDashboardApp />,
+		auth: settingsConfig.defaultAuth
+	},
 ];
 export default routes;

@@ -1,7 +1,7 @@
 // import AcademyAppConfig from './academy/AcademyAppConfig';
 // import CalendarAppConfig from './calendar/CalendarAppConfig';
-// import MessengerAppConfig from './messenger/MessengerAppConfig';
-// import ContactsAppConfig from './contacts/ContactsAppConfig';
+import MessengerAppConfig from './messenger/MessengerAppConfig';
+import ClientsAppConfig from './clients/ClientsAppConfig';
 // import ECommerceAppConfig from './e-commerce/ECommerceAppConfig';
 // import FileManagerAppConfig from './file-manager/FileManagerAppConfig';
 // import HelpCenterAppConfig from './help-center/HelpCenterAppConfig';
@@ -10,7 +10,7 @@
 // import ProfileAppConfig from './profile/profileAppConfig';
 // import ScrumboardAppConfig from './scrumboard/ScrumboardAppConfig';
 // import TasksAppConfig from './tasks/TasksAppConfig';
-// import NotificationsAppConfig from './notifications/NotificationsAppConfig';
+import NotificationsAppConfig from './notifications/NotificationsAppConfig';
 import EmployeesAppConfig from "./employees/EmployeesAppConfig";
 
 /**
@@ -19,8 +19,8 @@ import EmployeesAppConfig from "./employees/EmployeesAppConfig";
 const appsConfigs = [
 	// AcademyAppConfig,
 	// CalendarAppConfig,
-	// MessengerAppConfig,
-	// ContactsAppConfig,
+	MessengerAppConfig,
+	ClientsAppConfig,
 	// ECommerceAppConfig,
 	// FileManagerAppConfig,
 	// HelpCenterAppConfig,
@@ -29,7 +29,7 @@ const appsConfigs = [
 	// ProfileAppConfig,
 	// ScrumboardAppConfig,
 	// TasksAppConfig,
-	// NotificationsAppConfig
+	NotificationsAppConfig,
 	EmployeesAppConfig
 ];
 export default appsConfigs;
