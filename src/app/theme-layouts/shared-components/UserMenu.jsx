@@ -12,11 +12,13 @@ import { selectUser } from 'src/app/auth/user/store/userSlice';
 import useAuth from 'src/app/auth/useAuth';
 import { darken } from '@mui/material/styles';
 import { useAppSelector } from 'app/store/hooks';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * The user menu.
  */
 function UserMenu() {
+	const Navigate = useNavigate();
 	const user = useAppSelector(selectUser);
 	const { signOut } = useAuth();
 	const [userMenu, setUserMenu] = useState(null);
@@ -117,16 +119,28 @@ function UserMenu() {
 						</MenuItem>
 					</>
 				) : (
-					<MenuItem
-						onClick={() => {
-							signOut();
-						}}
-					>
-						<ListItemIcon className="min-w-40">
-							<FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>
-						</ListItemIcon>
-						<ListItemText primary="Sign out" />
-					</MenuItem>
+					<>
+						<MenuItem
+							onClick={() => {
+								Navigate('/apps/profile');
+							}}
+						>
+							<ListItemIcon className="min-w-40">
+								<FuseSvgIcon>heroicons-outline:user-circle</FuseSvgIcon>
+							</ListItemIcon>
+							<ListItemText primary="My Profile" />
+						</MenuItem>
+						<MenuItem
+							onClick={() => {
+								signOut();
+							}}
+						>
+							<ListItemIcon className="min-w-40">
+								<FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>
+							</ListItemIcon>
+							<ListItemText primary="Sign out" />
+						</MenuItem>
+					</>
 				)}
 			</Popover>
 		</>

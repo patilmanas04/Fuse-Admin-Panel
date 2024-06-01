@@ -11,6 +11,21 @@ i18next.addResourceBundle('ar', 'navigation', ar);
  */
 const navigationConfig = [
 	{
+		id: 'Profile',
+		title: 'Profile',
+		type: 'group',
+		icon: 'heroicons-outline:home',
+		children: [
+			{
+				id: 'myprofile',
+				title: 'My Profile',
+				type: 'item',
+				icon: 'heroicons-outline:user-circle',
+				url: 'apps/profile',
+			},
+		]
+	},
+	{
 		id: 'dashboards',
 		title: 'Dashboards',
 		subtitle: '',
@@ -119,11 +134,33 @@ const navigationConfig = [
 				]
 			},
 			{
-				id: 'applications.phototracking',
-				title: 'Photo Tracking',
-				type: 'item',
-				url: 'apps/phototracking',
-				icon: 'heroicons-outline:camera',
+				id: 'applications.productmanagement',
+				title: 'Product Management',
+				type: 'collapse',
+				icon: 'heroicons-outline:archive',
+				children: [
+					{
+						id: 'applications.productmanagement.photo-tracking',
+						title: 'Photo Tracking',
+						type: 'item',
+						icon: 'heroicons-outline:camera',
+						url: 'apps/photo-tracking',
+					},
+					{
+						id: 'applications.productmanagement.inventory',
+						title: 'Inventory',
+						type: 'item',
+						icon: 'heroicons-outline:shopping-cart',
+						url: 'apps/e-commerce/products',
+					},
+					{
+						id: 'applications.productmanagement.',
+						title: 'Suppliers',
+						type: 'item',
+						icon: 'heroicons-outline:user-group',
+						url: 'apps/e-commerce/orders',
+					},
+				]
 			},
 			{
 				id: 'applications.shifts',
@@ -138,13 +175,6 @@ const navigationConfig = [
 				type: 'item',
 				url: 'apps/reports',
 				icon: 'heroicons-outline:flag',
-			},
-			{
-				id: 'applications.inventory',
-				title: 'Inventory',
-				type: 'item',
-				url: 'apps/inventory',
-				icon: 'heroicons-outline:archive',
 			},
 			{
 				id: 'applications.expenses',
