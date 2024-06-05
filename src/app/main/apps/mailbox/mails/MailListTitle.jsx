@@ -8,7 +8,7 @@ import useSelectMailsTitle from '../hooks/useSelectMailsTitle';
 function MailListTitle() {
 	const routeParams = useParams();
 	const title = useSelectMailsTitle(routeParams);
-	return <Typography className="hidden sm:flex font-semibold uppercase mx-8">{title}</Typography>;
+	return <Typography className="hidden sm:flex font-semibold uppercase mx-8">{"{TITLE}"}</Typography>;
 }
 
 export default MailListTitle;

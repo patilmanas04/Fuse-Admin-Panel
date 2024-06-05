@@ -31,7 +31,28 @@ function MailList() {
 		}
 
 		if (mails) {
-			setFilteredData(getFilteredArray());
+			setFilteredData([
+				{
+					route: "membership-report",
+					title: "Membership Report",
+					description: "Report generates a list of all contract members with their contact and contract data. The report allows you to generate a list of all clients put into the system by the membership status with its start and end date and their financial status."
+				},
+				{
+					route: "due-memberships",
+					title: "Due Memberships",
+					description: "Report allows you to monitor the members with due membership by current month. The report allows you to generate a list of all clients put into the system with the membership expiring over current month with its start and due date."
+				},
+				{
+					route: "personal-training",
+					title: "Personal Training",
+					description: "Report generates a list of all PT contract members with their contact, contract data and PT Trainers. The report allows you to generate a list of all clients put into the system by the PT membership status with its start and end date, and their financial status."
+				},
+				{
+					route: "member-measurement",
+					title: "Member Measurement",
+					description: "Generate a list of club members with information about last measurement done on with body stats entered to the system and next to be done on."
+				},
+			]);
 		}
 	}, [mails, searchText]);
 
@@ -65,6 +86,7 @@ function MailList() {
 
 	return (
 		<List className="p-0 w-full">
+			{console.log(filteredData)}
 			{filteredData.map((mail) => (
 				<MailListItem
 					mail={mail}

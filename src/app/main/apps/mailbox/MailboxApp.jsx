@@ -7,17 +7,17 @@ import MailboxAppSidebarContent from './MailboxAppSidebarContent';
 import Mails from './mails/Mails';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
-	'& .FusePageSimple-rightSidebar': {
-		flex: '1',
-		[theme.breakpoints.down('lg')]: {
-			minWidth: '100%'
-		}
-	},
-	'& .FusePageSimple-contentWrapper': {
-		[theme.breakpoints.up('lg')]: {
-			maxWidth: 400
-		}
-	}
+	// '& .FusePageSimple-rightSidebar': {
+	// 	flex: '1',
+	// 	[theme.breakpoints.down('lg')]: {
+	// 		minWidth: '100%'
+	// 	}
+	// },
+	// '& .FusePageSimple-contentWrapper': {
+	// 	[theme.breakpoints.up('lg')]: {
+	// 		maxWidth: 400
+	// 	}
+	// }
 }));
 
 /**
@@ -53,9 +53,9 @@ function MailboxApp() {
 			leftSidebarOnClose={() => setLeftSidebarOpen(false)}
 			leftSidebarWidth={288}
 			scroll={isMobile ? 'normal' : 'content'}
-			rightSidebarContent={<Outlet />}
-			rightSidebarOpen={rightSidebarOpen}
-			rightSidebarOnClose={() => setRightSidebarOpen(false)}
+			// rightSidebarContent={<Outlet />}
+			// rightSidebarOpen={rightSidebarOpen}
+			// rightSidebarOnClose={() => setRightSidebarOpen(false)}
 		/>
 	);
 }

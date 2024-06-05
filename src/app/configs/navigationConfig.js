@@ -170,6 +170,56 @@ const navigationConfig = [
 				icon: 'heroicons-outline:clock',
 			},
 			{
+				id: 'applications.schedule',
+				title: 'Schedule',
+				type: 'collapse',
+				icon: 'material-outline:calendar_today',
+				children: [
+					{
+						id: 'applications.schedule.diet-session',
+						title: 'Diet Session',
+						type: 'item',
+						icon: 'heroicons-outline:clock',
+						url: 'apps/schedule/diet-session',
+					},
+					{
+						id: 'applications.schedule.water-intake',
+						title: 'Water Intake',
+						type: 'item',
+						icon: 'material-outline:water_drop',
+						url: 'apps/schedule/water-intake',
+					},
+					{
+						id: 'applications.schedule.sleep-session',
+						title: 'Sleep Session',
+						type: 'item',
+						icon: 'heroicons-outline:moon',
+						url: 'apps/schedule/sleep-session',
+					},
+					{
+						id: 'applications.schedule.diet-plan',
+						title: 'Diet Plan',
+						type: 'item',
+						icon: 'material-outline:food_bank',
+						url: 'apps/schedule/diet-plan',
+					},
+					{
+						id: 'applications.schedule.exercise-schedule',
+						title: 'Exercise Schedule',
+						type: 'item',
+						icon: 'heroicons-outline:sparkles',
+						url: 'apps/schedule/exercise-schedule',
+					},
+					{
+						id: 'applications.schedule.apponitment-schedule',
+						title: 'Appointment Schedule',
+						type: 'item',
+						icon: 'heroicons-outline:calendar',
+						url: 'apps/schedule/apponitment-schedule',
+					},
+				]
+			},
+			{
 				id: 'applications.reports',
 				title: 'Reports',
 				type: 'item',
@@ -229,4 +279,5 @@ const navigationConfig = [
 		],
 	}
 ];
+
 export default navigationConfig;

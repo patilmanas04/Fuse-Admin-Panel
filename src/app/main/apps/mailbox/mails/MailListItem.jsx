@@ -43,13 +43,13 @@ function MailListItem(props) {
 		<StyledListItem
 			component={NavLinkAdapter}
 			activeClassName="selected"
-			to={mail.id}
+			to={mail.route}
 			dense
 			selected={checked}
 			unread={mail.unread ? 1 : 0}
 			className="items-start py-20 px-0 md:px-8 relative w-full"
 		>
-			<Checkbox
+			{/* <Checkbox
 				tabIndex={-1}
 				disableRipple
 				checked={checked}
@@ -59,11 +59,11 @@ function MailListItem(props) {
 					dispatch(toggleInSelectedMails(mail.id));
 				}}
 				size="small"
-			/>
+			/> */}
 
 			<div className="flex flex-col flex-auto min-w-0">
 				<div className="flex w-full space-x-6 items-center">
-					<Avatar
+					{/* <Avatar
 						sx={{
 							backgroundColor: (_theme) => _theme.palette.primary.main
 						}}
@@ -71,14 +71,14 @@ function MailListItem(props) {
 						src={mail.from?.avatar}
 					>
 						{mail.from.contact}
-					</Avatar>
+					</Avatar> */}
 					<div className="flex flex-col w-full min-w-0">
 						<div className="flex items-center w-full">
 							<Typography className="mr-8 font-semibold truncate">
-								{mail.from.contact.split('<')[0].trim()}
+								{mail.title}
 							</Typography>
 
-							{mail.important && (
+							{/* {mail.important && (
 								<FuseSvgIcon
 									className="mr-12 text-red-500 dark:text-red-600"
 									size={16}
@@ -92,9 +92,9 @@ function MailListItem(props) {
 								color="text.secondary"
 							>
 								{format(new Date(mail.date), 'LLL dd')}
-							</Typography>
+							</Typography> */}
 						</div>
-						<div className="flex items-center w-full mt-4">
+						{/* <div className="flex items-center w-full mt-4">
 							<span className="leading-4 truncate">{mail.subject}</span>
 							{((mail.attachments && mail.attachments.length > 0) || mail.starred) && (
 								<div className="flex ml-auto pl-8">
@@ -110,14 +110,14 @@ function MailListItem(props) {
 									)}
 								</div>
 							)}
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<Typography
 					color="text.secondary"
 					className="mt-8 leading-normal line-clamp-2"
 				>
-					{_.truncate(mail.content.replace(/<(?:.|\n)*?>/gm, ''), { length: 180 })}
+					{mail.description}
 				</Typography>
 			</div>
 		</StyledListItem>

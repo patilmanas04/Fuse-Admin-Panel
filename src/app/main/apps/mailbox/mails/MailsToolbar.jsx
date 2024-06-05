@@ -111,7 +111,7 @@ function MailToolbar(props) {
 					<MailListTitle />
 				</div>
 
-				<OutlinedInput
+				{/* <OutlinedInput
 					className="flex flex-1 items-center px-16 rounded-full"
 					fullWidth
 					placeholder={t('SEARCH_PLACEHOLDER')}
@@ -126,10 +126,10 @@ function MailToolbar(props) {
 						'aria-label': 'Search'
 					}}
 					size="small"
-				/>
+				/> */}
 			</Box>
 
-			<Box
+			{/* <Box
 				className="flex items-center w-full min-h-56 px-8 border-b space-x-8"
 				sx={{ backgroundColor: 'background.paper' }}
 			>
@@ -332,7 +332,7 @@ function MailToolbar(props) {
 						</Tooltip>
 					</>
 				)}
-			</Box>
+			</Box> */}
 		</div>
 	);
 }
