@@ -21,7 +21,7 @@ import { fileManagerApiMocks } from './api/file-manager-api';
 import { helpCenterApiMocks } from './api/help-center-api';
 import { mailBoxApiMocks } from './api/mailbox-api';
 import { notesApiMocks } from './api/notes-api';
-// import { scrumboardApiMocks } from './api/scrumboard-api';
+import { scrumboardApiMocks } from './api/scrumboard-api';
 import { tasksApiMocks } from './api/tasks-api';
 import { profileApiMocks } from './api/profile-api';
 import { calendarApiMocks } from './api/calendar-api';
@@ -59,7 +59,7 @@ function MockAdapterProvider(props) {
 				notesApiMocks,
 				notificationsApiMocks,
 				profileApiMocks,
-				// scrumboardApiMocks,
+				scrumboardApiMocks,
 				tasksApiMocks
 			].forEach((mockSetup) => {
 				mockSetup(mock);

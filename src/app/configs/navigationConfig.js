@@ -170,6 +170,13 @@ const navigationConfig = [
 				icon: 'heroicons-outline:clock',
 			},
 			{
+				id: 'applications.scrumboard',
+				title: 'Scrumboard',
+				type: 'item',
+				url: 'apps/scrumboard',
+				icon: 'heroicons-outline:view-boards',
+			},
+			{
 				id: 'applications.schedule',
 				title: 'Schedule',
 				type: 'collapse',
@@ -254,19 +261,19 @@ const navigationConfig = [
 				icon: 'heroicons-outline:user-group',
 				children: [
 					{
-						id: 'applications.membership.gymmembership',
+						id: 'applications.membership.gym-membership',
 						title: 'Gym Membership',
 						type: 'item',
 						icon: 'material-outline:receipt_long',
-						url: 'apps/membership/gymmembership',
+						url: 'apps/membership/gym-membership',
 					},
 				]
 			},
 			{
-				id: 'applications.assessmentform',
+				id: 'applications.assessment-form',
 				title: 'Assessment Form',
 				type: 'item',
-				url: 'apps/assessmentform',
+				url: 'apps/assessment-form',
 				icon: 'heroicons-outline:document-text',
 			},
 			{
