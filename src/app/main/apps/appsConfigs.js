@@ -18,6 +18,10 @@ import BodyAssesmentReportConfig from './body-assesment-report/BodyAssesmentRepo
 import ClassesConfig from './classes/ClassesConfig';
 import MembershipConfig from './gym-membership/MembershipConfig';
 import AssesmentFormConfig from './assesment-forms/AssesmentFormConfig';
+import DietSessionConfig from './schedule/diet-sessions/DietSessionConfig';
+import SleepSessionConfig from './schedule/sleep-session/SleepSessionConfig';
+import ExerciseScheduleConfig from './schedule/exercise-schedule/ExerciseScheduleConfig';
+import AppointmentScheduleConfig from './schedule/appointment-schedule/AppointmentScheduleConfig';
 
 /**
  * The list of application configurations.
@@ -42,6 +46,11 @@ const appsConfigs = [
 	BodyAssesmentReportConfig,
 	ClassesConfig,
 	MembershipConfig,
-	AssesmentFormConfig
+	AssesmentFormConfig,
+	DietSessionConfig,
+	SleepSessionConfig,
+	ExerciseScheduleConfig,
+	AppointmentScheduleConfig
 ];
+
 export default appsConfigs;
