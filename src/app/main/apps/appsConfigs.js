@@ -22,6 +22,7 @@ import DietSessionConfig from './schedule/diet-sessions/DietSessionConfig';
 import SleepSessionConfig from './schedule/sleep-session/SleepSessionConfig';
 import ExerciseScheduleConfig from './schedule/exercise-schedule/ExerciseScheduleConfig';
 import AppointmentScheduleConfig from './schedule/appointment-schedule/AppointmentScheduleConfig';
+import WaterIntakeConfig from './water-intake/WaterIntakeConfig';
 
 /**
  * The list of application configurations.
@@ -50,7 +51,8 @@ const appsConfigs = [
 	DietSessionConfig,
 	SleepSessionConfig,
 	ExerciseScheduleConfig,
-	AppointmentScheduleConfig
+	AppointmentScheduleConfig,
+	WaterIntakeConfig
 ];
 
 export default appsConfigs;
