@@ -55,6 +55,42 @@ const navigationConfig = [
 		icon: 'verified_user',
 		children: [
 			{
+				id: 'applications.pos',
+				title: 'POS',
+				type: 'collapse',
+				icon: 'heroicons-outline:shopping-bag',
+				children: [
+					{
+						id: 'applications.pos.membership',
+						title: 'Membership',
+						type: 'item',
+						icon: 'material-outline:receipt_long',
+						url: 'apps/pos/membership',
+					},
+					{
+						id: 'applications.pos.personaltrainer',
+						title: 'Personal Trainer',
+						type: 'item',
+						icon: 'heroicons-outline:user',
+						url: 'apps/pos/personaltrainer',
+					},
+					{
+						id: 'applications.pos.products',
+						title: 'Products',
+						type: 'item',
+						icon: 'heroicons-outline:shopping-cart',
+						url: 'apps/pos/products',
+					},
+					{
+						id: 'applications.pos.bodyanalysis',
+						title: 'Body Analysis',
+						type: 'item',
+						icon: 'heroicons-outline:scale',
+						url: 'apps/pos/bodyanalysis',
+					},
+				]
+			},
+			{
 				id: 'applications.employees',
 				title: 'Employees',
 				type: 'item',
@@ -168,13 +204,6 @@ const navigationConfig = [
 				type: 'item',
 				url: 'apps/notes',
 				icon: 'heroicons-outline:clock',
-			},
-			{
-				id: 'applications.scrumboard',
-				title: 'Scrumboard',
-				type: 'item',
-				url: 'apps/scrumboard',
-				icon: 'heroicons-outline:view-boards',
 			},
 			{
 				id: 'applications.schedule',

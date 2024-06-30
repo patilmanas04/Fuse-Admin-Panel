@@ -24,6 +24,10 @@ import ExerciseScheduleConfig from './schedule/exercise-schedule/ExerciseSchedul
 import AppointmentScheduleConfig from './schedule/appointment-schedule/AppointmentScheduleConfig';
 import WaterIntakeConfig from './water-intake/WaterIntakeConfig';
 import DietPlanConfig from './schedule/diet-plan/DietPlanConfig';
+import POSMembershipConfig from './pos/membership/POSMembershipConfig';
+import POSPersonalTrainerConfig from './personal-trainer/POSPersonalTrainerConfig';
+import POSProductsConfig from './products/POSProductsConfig';
+import POSBosdAnalysisConfig from './body-analysis/POSBosdAnalysisConfig';
 
 /**
  * The list of application configurations.
@@ -54,7 +58,11 @@ const appsConfigs = [
 	ExerciseScheduleConfig,
 	AppointmentScheduleConfig,
 	WaterIntakeConfig,
-	DietPlanConfig
+	DietPlanConfig,
+	POSMembershipConfig,
+	POSPersonalTrainerConfig,
+	POSProductsConfig,
+	POSBosdAnalysisConfig
 ];
 
 export default appsConfigs;
