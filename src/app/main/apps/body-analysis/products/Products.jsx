@@ -8,7 +8,7 @@ import { useEffect } from 'react';
  */
 function Products() {
 	useEffect(() => {
-		document.title = 'Classes';
+		document.title = 'POS | Body Analysis';
 	})
 
 	return (

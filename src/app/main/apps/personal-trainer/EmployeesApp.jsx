@@ -19,7 +19,7 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
  */
 function EmployeesApp() {
 	useEffect(() => {
-		document.title = 'Employees';
+		document.title = 'POS | Personal Trainer';
 	}, [])
 	const pageLayout = useRef(null);
 	const routeParams = useParams();
